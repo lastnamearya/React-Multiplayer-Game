@@ -42,6 +42,7 @@ export const Box = styled.div`
   width: 85px;
   height: 75px;
   border: 2px solid #f0f0f0;
+  text-align: center;
 `;
 
 export const ResetGame = styled.button`

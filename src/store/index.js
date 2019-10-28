@@ -7,10 +7,14 @@ class StoreProvider extends React.Component {
     userGridsInput: undefined,
     // Slide Array by defaut It's empty
     slidesArray: [],
-    // First onClick ~ Slide Value ( Either it'll be 0 or X)
-    firstClickValue: undefined,
-    currentClickValue: undefined,
-    nextMoveValue: undefined,
+    // First onClick ~to Start the Game.
+    isFirstValueSelected: false,
+    // Player One Value ~ Either O or X
+    firstPlayerValue: undefined,
+    // Player Two Value ~ Either O or X
+    secondPlayerValue: undefined,
+    // Toggle to check which Player is currently Active
+    isFirstPlayerActive: false,
   };
 
   // ******************************************** //
@@ -47,30 +51,47 @@ class StoreProvider extends React.Component {
 
   // ******************************************** //
 
-  // Get First Slide Click Value
+  /* Get First Slide Click Value Function, It'll give us following data to continue
 
-  getFirstClickValue = value => this.setState({ firstClickValue: value, currentClickValue: value });
+    - It'll make our First Player active to continue
+    - First Player Value Input ( Either o or x)
+    - Second Player Value Input ( Either o or x)
+    - To start the Game ~ It'll make isFirstValueSelected to be true.
+  */
 
-  // ******************************************** //
+  getFirstClickValue = value => {
+    const firstPlayerValue = value;
 
-  // Slides OnClick Function
+    const secondPlayerValue = value === 'o' ? 'x' : 'o';
 
-  clickSlide = () => {
-    const { currentClickValue } = this.state;
-
-    if (currentClickValue === '0') {
-      this.setState({ nextMoveValue: 'x' });
-    } else if (currentClickValue === 'x') {
-      this.setState({ nextMoveValue: '0' });
-    }
+    this.setState({
+      isFirstValueSelected: true,
+      isFirstPlayerActive: true,
+      firstPlayerValue,
+      secondPlayerValue,
+    });
   };
 
   // ******************************************** //
 
-  // Reset Game Function ~ on Clicking Reset
+  // Toggle Current Active Player ~ It'll change the current Active Player
+
+  toggleCurrentActivePlayer = () =>
+    this.setState(prevState => ({
+      isFirstPlayerActive: !prevState.isFirstPlayerActive,
+    }));
+
+  // ******************************************** //
+
+  // Reset Game Function ~ on Clicking Reset ( It'll reset our Game State )
 
   resetGame = () => {
-    this.setState({ isFormActive: true, slidesArray: [] });
+    this.setState({
+      isFormActive: true,
+      slidesArray: [],
+      userGridsInput: undefined,
+      firstClickValue: undefined,
+    });
   };
 
   // ******************************************** //
@@ -82,6 +103,7 @@ class StoreProvider extends React.Component {
           ...this.state,
           getGridsNumber: this.getGridsNumber,
           getFirstClickValue: this.getFirstClickValue,
+          toggleCurrentActivePlayer: this.toggleCurrentActivePlayer,
           resetGame: this.resetGame,
         }}
       >

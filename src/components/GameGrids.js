@@ -8,24 +8,76 @@ import { StoreConsumer } from '../store';
 
 class Slide extends React.Component {
   state = {
-    currentMove: undefined,
     showValue: false,
+    currentValue: undefined,
   };
 
-  // *************************** //
+  // ********************************* //
 
-  getCurrentValue = () => {
-    const { currentClickValue } = this.props;
+  // To stop overriding of current Value I'll limit componnet Did Update here using shouldComponetnUpdate Lifecyle Hook based on state's showValue
 
-    this.setState({ currentMove: currentClickValue });
+  shouldComponentUpdate() {
+    if (!this.state.showValue) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // *********************************** //
+
+  // Once Player First Selects initial Value then I'll fire this lifecyle to get Initial Current Value.
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isFirstPlayerActive !== this.props.isFirstPlayerActive) {
+      this.getInitialState();
+    }
+  }
+
+  // ********************************* //
+
+  getInitialState = () => {
+    const { isFirstPlayerActive, firstPlayerValue, secondPlayerValue } = this.props;
+
+    // Current Render Value ~ Based on Which Player is active currently. Here I'm dynamically assigning current active player value based on which player is active by using "isFirstValueSelected" variable.
+
+    const currentValue = isFirstPlayerActive ? firstPlayerValue : secondPlayerValue;
+
+    this.setState({ currentValue: currentValue });
   };
 
-  // *************************** //
+  // *********************************** //
+
+  onSlideClick = () => {
+    const { showValue } = this.state;
+
+    // If showValue is false then I'm going to execute this function, Otherwise I won't execute.
+
+    if (!showValue) {
+      const { isFirstValueSelected, toggleCurrentActivePlayer } = this.props;
+
+      // Here before continue anything first I'll check whether the first value is selected or not, If not then I'll alert user to select from 0 or X by popping up a alert box.
+
+      if (isFirstValueSelected) {
+        // By default We're not going to show any value in the Box.
+        this.setState({ showValue: true });
+
+        // Then after this I'll toggle the Current Active Player
+
+        toggleCurrentActivePlayer();
+      } else {
+        alert('Hey choose first value to play the Game 0 or x!');
+      }
+    }
+    // No Else clause here.
+  };
+
+  // *********************************** //
 
   render() {
-    const { showValue, currentMove } = this.state;
+    const { showValue, currentValue } = this.state;
 
-    return <Box>{showValue && <p>{currentMove}</p>}</Box>;
+    return <Box onClick={this.onSlideClick}>{showValue && <h2>{currentValue}</h2>}</Box>;
   }
 }
 
@@ -33,23 +85,41 @@ class Slide extends React.Component {
 
 const GameGrids = () => (
   <StoreConsumer>
-    {({ slidesArray, resetGame, getFirstClickValue, firstClickValue, userGridsInput }) => (
+    {({
+      slidesArray,
+      resetGame,
+      getFirstClickValue,
+      firstPlayerValue,
+      secondPlayerValue,
+      isFirstValueSelected,
+      isFirstPlayerActive,
+      userGridsInput,
+      toggleCurrentActivePlayer,
+    }) => (
       <GameDiv>
         <User>
           <h3>Player One</h3>
-          {!firstClickValue ? (
+          {!isFirstValueSelected ? (
             <React.Fragment>
               <p>Please Select first value to Start</p>
-              <button onClick={() => getFirstClickValue('0')}>0</button>
-              <button onClick={() => getFirstClickValue('X')}>X</button>
+              <button onClick={() => getFirstClickValue('o')}>o</button>
+              <button onClick={() => getFirstClickValue('x')}>x</button>
             </React.Fragment>
           ) : (
-            <p>{`You Selected ${firstClickValue}. No Go Play!`}</p>
+            <p>{`You Selected ${firstPlayerValue}. No Go Play!`}</p>
           )}
         </User>
         <GridsWrapper gridsLength={userGridsInput}>
           {slidesArray.map(index => (
-            <Slide key={index} />
+            <Slide
+              key={index}
+              slideNumber={index}
+              isFirstValueSelected={isFirstValueSelected}
+              isFirstPlayerActive={isFirstPlayerActive}
+              firstPlayerValue={firstPlayerValue}
+              secondPlayerValue={secondPlayerValue}
+              toggleCurrentActivePlayer={toggleCurrentActivePlayer}
+            />
           ))}
           <ResetGame onClick={resetGame}>Reset Game</ResetGame>
         </GridsWrapper>
