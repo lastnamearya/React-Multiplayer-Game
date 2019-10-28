@@ -25,7 +25,7 @@ class App extends React.Component {
         <StoreConsumer>
           {({ isFormActive, getGridsNumber }) => (
             <GameWrapper>
-              <img src={ReactLogo} alt="React" style={{ width: '10%' }} />
+              <img src={ReactLogo} alt="React" style={{ width: '10%', marginRight: '30px' }} />
               <h1>React Tic-Tac-Toe</h1>
               <p>
                 Please ignore CSS / UX{' '}
@@ -53,7 +53,7 @@ class App extends React.Component {
                       placeholder="Please Choose No of Grids"
                       onChange={this.handleChange}
                     />
-                    <button type="submit">Save</button>
+                    <button type="submit">Start</button>
                   </form>
                 </FormWrapper>
               ) : (

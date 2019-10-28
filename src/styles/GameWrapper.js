@@ -21,6 +21,7 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 
   p {
     font-size: 1.2rem;
@@ -28,15 +29,19 @@ export const FormWrapper = styled.div`
 
   input {
     margin-right: 8px;
-    width: 150px;
-    height: 20px;
-    padding-left: 5px;
+    width: 180px;
+    padding: 10px;
   }
 
   button {
-    width: 60px;
-    height: 24px;
+    width: 90px;
+    height: 37px;
     cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+    background: #5ed4ad;
+    border: none;
   }
 `;
 
@@ -80,11 +85,16 @@ export const Box = styled.div`
 `;
 
 export const ResetGame = styled.button`
-  width: 100px;
-  height: 30px;
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  font-weight: 550;
   cursor: pointer;
+  background: linear-gradient(-45deg, #ec1943, #f0486a);
+  border: none;
+  color: #fff;
+  width: 140px;
+  height: 40px;
+  border-radius: 40px;
 `;
 
 export const User = styled.div`

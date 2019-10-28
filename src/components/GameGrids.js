@@ -18,6 +18,7 @@ const GameGrids = () => (
       getPlayerMoves,
     }) => (
       <GameDiv>
+        {/* User only visible while Game is in Progress */}
         {!isGameCompleted && (
           <User>
             <h3>
@@ -66,6 +67,7 @@ const GameGrids = () => (
             <ResetGame onClick={resetGame}>Reset Game</ResetGame>
           </GridsDiv>
         </GridsWrapper>
+        {/* User only visible while Game is in Progress */}
         {!isGameCompleted && (
           <User>
             <h3>

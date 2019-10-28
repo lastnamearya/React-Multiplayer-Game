@@ -40,7 +40,7 @@ class StoreProvider extends React.Component {
 
     // If the input entered by user is number ( truthy ) then I'll fire set update call. Else I'll alert user to input a right Numeric Value and Second case when the Number is less than 3.
 
-    if (numericGridValue && numericGridValue >= 3 && numericGridValue <= 8) {
+    if (numericGridValue && numericGridValue >= 3 && numericGridValue <= 6) {
       // How many Slide Boxes we're going to show, If the number is 3 (user input) then I'm going to show 9 slides ( 3 * 3). If it's 4 then I'm going to show ( 4 * 4)
 
       // Total Slides Array
