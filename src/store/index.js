@@ -4,6 +4,7 @@ const { Provider, Consumer } = React.createContext();
 class StoreProvider extends React.Component {
   state = {
     isFormActive: true,
+    userGridsInput: undefined,
     // Slide Array by defaut It's empty
     slidesArray: [],
     // First onClick ~ Slide Value ( Either it'll be 0 or X)
@@ -24,13 +25,21 @@ class StoreProvider extends React.Component {
     // If the input entered by user is number ( truthy ) then I'll fire set update call. Else I'll alert user to input a right Numeric Value and Second case when the Number is less than 3.
 
     if (numericGridValue && numericGridValue >= 3 && numericGridValue <= 8) {
+      // How many Slide Boxes we're going to show, If the number is 3 (user input) then I'm going to show 9 slides ( 3 * 3). If it's 4 then I'm going to show ( 4 * 4)
+
+      // Total Slides Array
+
       const slidesArray = [];
 
-      for (let i = 0; i < numericGridValue; i++) {
+      // No of Boxes it'll have, I'll multiple this with itself to get total no of slides.
+
+      const slidesLength = Math.pow(numericGridValue, 2);
+
+      for (let i = 0; i < slidesLength; i++) {
         slidesArray.push(i);
       }
 
-      this.setState({ slidesArray, isFormActive: false });
+      this.setState({ userGridsInput: numericGridValue, slidesArray, isFormActive: false });
     } else {
       alert('Please enter a number greater in give range to continue playing the game');
     }

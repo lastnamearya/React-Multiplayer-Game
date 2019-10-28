@@ -29,12 +29,13 @@ export const GameDiv = styled.div`
 
 export const GridsWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+  flex-wrap: wrap;
+  justify-content: center;
 
-export const HorizontalGridWrapper = styled.div`
-  display: flex;
+  ${'' /* Dynamically generating width based on user Grids Input */}
+
+  width: ${({ gridsLength }) => `${gridsLength * 90}px`};
+  height: auto;
 `;
 
 export const Box = styled.div`
@@ -56,7 +57,6 @@ export const User = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 30%;
 
   button {
     width: 50px;

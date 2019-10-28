@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  GameDiv,
-  GridsWrapper,
-  HorizontalGridWrapper,
-  User,
-  ResetGame,
-  Box,
-} from '../styles/GameWrapper';
+import { GameDiv, GridsWrapper, User, ResetGame, Box } from '../styles/GameWrapper';
 import { StoreConsumer } from '../store';
 
 // ***************************** //
 
-// Single Box ( Grid )
+// Single Box Slide in whole Grid
 
 class Slide extends React.Component {
   state = {
@@ -36,33 +29,11 @@ class Slide extends React.Component {
   }
 }
 
-// ***************************** //
-
-// X-Axis Horizontal Grids
-
-const HorizontalGrid = () => (
-  <StoreConsumer>
-    {({ slidesArray, currentClickValue, nextMoveValue }) => {
-      return (
-        <HorizontalGridWrapper>
-          {slidesArray.map(index => (
-            <Slide
-              key={index}
-              currentClickValue={currentClickValue}
-              nextMoveValue={nextMoveValue}
-            />
-          ))}
-        </HorizontalGridWrapper>
-      );
-    }}
-  </StoreConsumer>
-);
-
 // ******************************** //
 
 const GameGrids = () => (
   <StoreConsumer>
-    {({ slidesArray, resetGame, getFirstClickValue, firstClickValue }) => (
+    {({ slidesArray, resetGame, getFirstClickValue, firstClickValue, userGridsInput }) => (
       <GameDiv>
         <User>
           <h3>Player One</h3>
@@ -76,9 +47,9 @@ const GameGrids = () => (
             <p>{`You Selected ${firstClickValue}. No Go Play!`}</p>
           )}
         </User>
-        <GridsWrapper>
+        <GridsWrapper gridsLength={userGridsInput}>
           {slidesArray.map(index => (
-            <HorizontalGrid key={index} />
+            <Slide key={index} />
           ))}
           <ResetGame onClick={resetGame}>Reset Game</ResetGame>
         </GridsWrapper>
