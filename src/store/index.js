@@ -1,5 +1,11 @@
 import React from 'react';
+import { matchWinningCase } from '../utils/Winner';
+
+// Creating a Context Store for our Game
+
 const { Provider, Consumer } = React.createContext();
+
+// **************************************** //
 
 class StoreProvider extends React.Component {
   state = {
@@ -19,6 +25,8 @@ class StoreProvider extends React.Component {
     firstPlayerRecords: [],
     // Player Two Move Records Array  ~ Slide index values
     secondPlayerRecords: [],
+    // For Stopping user to click other Slides
+    isGameCompleted: false,
   };
 
   // ******************************************** //
@@ -89,14 +97,14 @@ class StoreProvider extends React.Component {
       firstPlayerNewRecords.push(slideIndex);
       this.setState({ firstPlayerRecords: firstPlayerNewRecords });
 
-      this.checkWinner(firstPlayerNewRecords);
+      this.checkWinner(firstPlayerNewRecords, 'First Player');
     } else {
       const secondPlayerNewRecords = Array.from(secondPlayerRecords);
 
       secondPlayerNewRecords.push(slideIndex);
       this.setState({ secondPlayerRecords: secondPlayerNewRecords });
 
-      this.checkWinner(secondPlayerNewRecords);
+      this.checkWinner(secondPlayerNewRecords, 'Second Player');
     }
 
     this.toggleCurrentActivePlayer();
@@ -113,27 +121,23 @@ class StoreProvider extends React.Component {
 
   // ******************************************** //
 
-  // Check if Won ~ Match the case
+  // Check if Won ~ Matching the winning case
 
-  checkWinner = movesArray => {
-    const matchingCases = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
+  checkWinner = (movesArray, player) => {
+    // Here I'm passing dynamically player moves array and no of grids to the utlility function ~ matchWinningCase to find the winning match.
 
-    for (let i = 0; i < matchingCases.length; i++) {
-      const [one, two, three] = matchingCases[i];
+    const result = matchWinningCase(movesArray, this.state.userGridsInput);
 
-      if (movesArray.includes(one) && movesArray.includes(two) && movesArray.includes(three)) {
-        alert('winner');
-      }
+    // If result is the case of "winner" then I"ll reflect Game Over chagne in my Store.
+
+    if (result && result === 'winner') {
+      this.setState({ isGameCompleted: true });
+
+      // After this I'll Highlight the Player who won the Game usign alert box.
+
+      alert(`${player} Won!`);
     }
+    // No Else clause here.
   };
 
   // ******************************************** //

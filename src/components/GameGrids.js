@@ -13,6 +13,7 @@ const GameGrids = () => (
       secondPlayerValue,
       isFirstValueSelected,
       isFirstPlayerActive,
+      isGameCompleted,
       userGridsInput,
       getPlayerMoves,
     }) => (
@@ -54,6 +55,7 @@ const GameGrids = () => (
                 slideIndex={index}
                 isFirstValueSelected={isFirstValueSelected}
                 isFirstPlayerActive={isFirstPlayerActive}
+                isGameCompleted={isGameCompleted}
                 firstPlayerValue={firstPlayerValue}
                 secondPlayerValue={secondPlayerValue}
                 getPlayerMoves={getPlayerMoves}

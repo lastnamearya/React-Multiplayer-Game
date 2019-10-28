@@ -46,9 +46,11 @@ class SlideBox extends React.Component {
   onSlideClick = () => {
     const { showValue } = this.state;
 
-    // If showValue is false then I'm going to execute this function, Otherwise I won't execute.
+    const { isGameCompleted } = this.props;
 
-    if (!showValue) {
+    // If showValue is false and isGameCompleted is false then I'm going to execute this function, Otherwise I won't execute.
+
+    if (!showValue && !isGameCompleted) {
       const { isFirstValueSelected, slideIndex, getPlayerMoves } = this.props;
 
       // Here before continue anything first I'll check whether the first value is selected or not, If not then I'll alert user to select from 0 or X by popping up a alert box.
@@ -61,7 +63,7 @@ class SlideBox extends React.Component {
 
         getPlayerMoves(slideIndex);
       } else {
-        alert('Hey choose first value to play the Game 0 or X!');
+        alert('Hey choose first value to play the Game 0 or X');
       }
     }
     // No Else clause here.

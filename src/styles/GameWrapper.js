@@ -93,6 +93,7 @@ export const User = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 25%;
+  margin-top: 20px;
 
   button {
     width: 50px;
