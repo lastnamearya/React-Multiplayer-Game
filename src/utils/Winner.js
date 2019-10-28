@@ -3,6 +3,8 @@
 export const matchWinningCase = (movesArray, gridNumber) => {
   // Matching cases ~ It'll depends upon the Grid Number ( Ranging from 3 - 6)
 
+  // ********* In case of 3 *************** //
+
   if (gridNumber === 3) {
     const matchingCases = [
       [0, 1, 2],
@@ -23,7 +25,9 @@ export const matchWinningCase = (movesArray, gridNumber) => {
       }
       // No else clause here.
     }
-  } else if (gridNumber === 4) {
+  }
+  // ********* In case of 4 *************** //
+  else if (gridNumber === 4) {
     const matchingCases = [
       [0, 1, 2, 3],
       [4, 5, 6, 7],
@@ -50,7 +54,9 @@ export const matchWinningCase = (movesArray, gridNumber) => {
       }
       // No else clause here.
     }
-  } else if (gridNumber === 5) {
+  }
+  // ********* In case of 5 *************** //
+  else if (gridNumber === 5) {
     const matchingCases = [
       [0, 1, 2, 3, 4],
       [5, 6, 7, 8, 9],
@@ -80,7 +86,9 @@ export const matchWinningCase = (movesArray, gridNumber) => {
       }
       // No else clause here.
     }
-  } else if (gridNumber === 6) {
+  }
+  // ********* In case of 6 *************** //
+  else if (gridNumber === 6) {
     const matchingCases = [
       [0, 1, 2, 3, 4, 5],
       [6, 7, 8, 9, 10, 11],
