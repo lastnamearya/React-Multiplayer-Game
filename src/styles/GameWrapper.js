@@ -31,6 +31,7 @@ export const GridsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  cursor: pointer;
 
   ${'' /* Dynamically generating width based on user Grids Input */}
 

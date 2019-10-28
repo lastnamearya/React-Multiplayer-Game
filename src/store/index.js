@@ -15,6 +15,10 @@ class StoreProvider extends React.Component {
     secondPlayerValue: undefined,
     // Toggle to check which Player is currently Active
     isFirstPlayerActive: false,
+    // Player One Move Records Array ~ Slide index values
+    firstPlayerRecords: [],
+    // Player Two Move Records Array  ~ Slide index values
+    secondPlayerRecords: [],
   };
 
   // ******************************************** //
@@ -74,6 +78,28 @@ class StoreProvider extends React.Component {
 
   // ******************************************** //
 
+  // Get Player Moves
+
+  getPlayerMoves = slideIndex => {
+    const { isFirstPlayerActive, firstPlayerRecords, secondPlayerRecords } = this.state;
+
+    if (isFirstPlayerActive) {
+      const firstPlayerNewRecords = Array.from(firstPlayerRecords);
+
+      firstPlayerNewRecords.push(slideIndex);
+      this.setState({ firstPlayerRecords: firstPlayerNewRecords });
+    } else {
+      const secondPlayerNewRecords = Array.from(secondPlayerRecords);
+
+      secondPlayerNewRecords.push(slideIndex);
+      this.setState({ secondPlayerRecords: secondPlayerNewRecords });
+    }
+
+    this.toggleCurrentActivePlayer();
+  };
+
+  // ******************************************** //
+
   // Toggle Current Active Player ~ It'll change the current Active Player
 
   toggleCurrentActivePlayer = () =>
@@ -104,6 +130,7 @@ class StoreProvider extends React.Component {
           getGridsNumber: this.getGridsNumber,
           getFirstClickValue: this.getFirstClickValue,
           toggleCurrentActivePlayer: this.toggleCurrentActivePlayer,
+          getPlayerMoves: this.getPlayerMoves,
           resetGame: this.resetGame,
         }}
       >

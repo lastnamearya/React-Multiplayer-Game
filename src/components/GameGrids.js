@@ -54,7 +54,7 @@ class Slide extends React.Component {
     // If showValue is false then I'm going to execute this function, Otherwise I won't execute.
 
     if (!showValue) {
-      const { isFirstValueSelected, toggleCurrentActivePlayer } = this.props;
+      const { isFirstValueSelected, slideIndex, getPlayerMoves } = this.props;
 
       // Here before continue anything first I'll check whether the first value is selected or not, If not then I'll alert user to select from 0 or X by popping up a alert box.
 
@@ -62,9 +62,9 @@ class Slide extends React.Component {
         // By default We're not going to show any value in the Box.
         this.setState({ showValue: true });
 
-        // Then after this I'll toggle the Current Active Player
+        // Then, I'll record this move and pass this current Slide Index to my Store to record the move.
 
-        toggleCurrentActivePlayer();
+        getPlayerMoves(slideIndex);
       } else {
         alert('Hey choose first value to play the Game 0 or x!');
       }
@@ -94,7 +94,7 @@ const GameGrids = () => (
       isFirstValueSelected,
       isFirstPlayerActive,
       userGridsInput,
-      toggleCurrentActivePlayer,
+      getPlayerMoves,
     }) => (
       <GameDiv>
         <User>
@@ -113,12 +113,12 @@ const GameGrids = () => (
           {slidesArray.map(index => (
             <Slide
               key={index}
-              slideNumber={index}
+              slideIndex={index}
               isFirstValueSelected={isFirstValueSelected}
               isFirstPlayerActive={isFirstPlayerActive}
               firstPlayerValue={firstPlayerValue}
               secondPlayerValue={secondPlayerValue}
-              toggleCurrentActivePlayer={toggleCurrentActivePlayer}
+              getPlayerMoves={getPlayerMoves}
             />
           ))}
           <ResetGame onClick={resetGame}>Reset Game</ResetGame>
