@@ -6,14 +6,14 @@ export const GameWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding-top: 50px;
+  padding-top: 20px;
 
   h1 {
     margin: 0;
   }
 
   p {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 `;
 
@@ -36,6 +36,7 @@ export const FormWrapper = styled.div`
   button {
     width: 60px;
     height: 24px;
+    cursor: pointer;
   }
 `;
 
@@ -45,14 +46,16 @@ export const FormWrapper = styled.div`
 
 export const GameDiv = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 50px 0;
 `;
 
 export const GridsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  cursor: pointer;
+  cursor: pointer;  
 
   ${'' /* Dynamically generating width based on user Grids Input */}
 
@@ -83,8 +86,9 @@ export const User = styled.div`
 
   button {
     width: 50px;
-    height: 20px;
+    height: 30px;
     margin-bottom: 5px;
     cursor: pointer;
+    font-size: 1rem;
   }
 `;

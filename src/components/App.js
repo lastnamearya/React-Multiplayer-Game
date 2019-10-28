@@ -2,6 +2,7 @@ import React from 'react';
 import { StoreProvider, StoreConsumer } from '../store';
 import { GameWrapper, FormWrapper } from '../styles/GameWrapper';
 import GameGrids from './GameGrids';
+import ReactLogo from '../styles/logo.svg';
 
 class App extends React.Component {
   state = {
@@ -24,6 +25,7 @@ class App extends React.Component {
         <StoreConsumer>
           {({ isFormActive, getGridsNumber }) => (
             <GameWrapper>
+              <img src={ReactLogo} alt="React" style={{ width: '10%' }} />
               <h1>React Tic-Tac-Toe</h1>
               <p>
                 Please ignore CSS / UX{' '}

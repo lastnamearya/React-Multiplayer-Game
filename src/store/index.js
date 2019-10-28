@@ -49,7 +49,7 @@ class StoreProvider extends React.Component {
 
       this.setState({ userGridsInput: numericGridValue, slidesArray, isFormActive: false });
     } else {
-      alert('Please enter a number greater in give range to continue playing the game');
+      alert('Please enter a number in give range to continue playing the game');
     }
   };
 
