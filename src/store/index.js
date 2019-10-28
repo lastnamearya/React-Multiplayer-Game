@@ -88,11 +88,15 @@ class StoreProvider extends React.Component {
 
       firstPlayerNewRecords.push(slideIndex);
       this.setState({ firstPlayerRecords: firstPlayerNewRecords });
+
+      this.checkWinner(firstPlayerNewRecords);
     } else {
       const secondPlayerNewRecords = Array.from(secondPlayerRecords);
 
       secondPlayerNewRecords.push(slideIndex);
       this.setState({ secondPlayerRecords: secondPlayerNewRecords });
+
+      this.checkWinner(secondPlayerNewRecords);
     }
 
     this.toggleCurrentActivePlayer();
@@ -109,14 +113,44 @@ class StoreProvider extends React.Component {
 
   // ******************************************** //
 
-  // Reset Game Function ~ on Clicking Reset ( It'll reset our Game State )
+  // Check if Won ~ Match the case
+
+  checkWinner = movesArray => {
+    const matchingCases = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+
+    for (let i = 0; i < matchingCases.length; i++) {
+      const [one, two, three] = matchingCases[i];
+
+      if (movesArray.includes(one) && movesArray.includes(two) && movesArray.includes(three)) {
+        alert('winner');
+      }
+    }
+  };
+
+  // ******************************************** //
+
+  // Reset Game Function ~ on Clicking Reset ( It'll completely reset our Store State )
 
   resetGame = () => {
     this.setState({
       isFormActive: true,
-      slidesArray: [],
       userGridsInput: undefined,
-      firstClickValue: undefined,
+      slidesArray: [],
+      isFirstValueSelected: false,
+      firstPlayerValue: undefined,
+      secondPlayerValue: undefined,
+      isFirstPlayerActive: false,
+      firstPlayerRecords: [],
+      secondPlayerRecords: [],
     });
   };
 

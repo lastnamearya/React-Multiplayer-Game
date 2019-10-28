@@ -5,6 +5,16 @@ export const GameWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  padding-top: 50px;
+
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    margin-top: 10px;
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -12,8 +22,20 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
+  p {
+    font-size: 1.2rem;
+  }
+
   input {
-    margin-right: 10px;
+    margin-right: 8px;
+    width: 150px;
+    height: 20px;
+    padding-left: 5px;
+  }
+
+  button {
+    width: 60px;
+    height: 24px;
   }
 `;
 
@@ -23,8 +45,7 @@ export const FormWrapper = styled.div`
 
 export const GameDiv = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-around;
+  justify-content: flex-start;
 `;
 
 export const GridsWrapper = styled.div`

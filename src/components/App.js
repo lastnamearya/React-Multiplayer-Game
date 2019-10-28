@@ -24,11 +24,18 @@ class App extends React.Component {
         <StoreConsumer>
           {({ isFormActive, getGridsNumber }) => (
             <GameWrapper>
-              <h1>Tic Tac Toe Game</h1>
+              <h1>React Tic-Tac-Toe</h1>
+              <p>
+                Please ignore CSS / UX{' '}
+                <span role="img" aria-label="img">
+                  🙏
+                </span>{' '}
+                for now
+              </p>
               {/* If form is active then I'll show Input Form else will show Game Grids to Play */}
               {isFormActive ? (
                 <FormWrapper>
-                  <p>Please select Number of Grids ranging from 3 - 8</p>
+                  <p>Please select a Number ranging from 3 - 6 for Tic-Tac-Toe Grids</p>
                   <form
                     onSubmit={event => {
                       // First I'll save user input (numeric value) into my Global Store
