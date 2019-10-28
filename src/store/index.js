@@ -86,23 +86,42 @@ class StoreProvider extends React.Component {
 
   // ******************************************** //
 
-  // Get Player Moves
+  // Get Player Moves ~ I'm saving every Player Moves
 
   getPlayerMoves = slideIndex => {
     const { isFirstPlayerActive, firstPlayerRecords, secondPlayerRecords } = this.state;
 
+    // In case of When First Player is Active
+
     if (isFirstPlayerActive) {
       const firstPlayerNewRecords = Array.from(firstPlayerRecords);
 
+      // Pushing move to newly created Array from Store's First Player Records
+
       firstPlayerNewRecords.push(slideIndex);
+
+      // Finally Updating State with the new move records array
+
       this.setState({ firstPlayerRecords: firstPlayerNewRecords });
 
+      // In last checking winning patters
+
       this.checkWinner(firstPlayerNewRecords, 'First Player');
-    } else {
+    }
+
+    // ************** Second Player ********************* //
+    else {
       const secondPlayerNewRecords = Array.from(secondPlayerRecords);
 
+      // Pushing move to newly created Array from Store's Second Player Records
+
       secondPlayerNewRecords.push(slideIndex);
+
+      // Finally Updating State with the new move records array
+
       this.setState({ secondPlayerRecords: secondPlayerNewRecords });
+
+      // In last checking winning patters
 
       this.checkWinner(secondPlayerNewRecords, 'Second Player');
     }
@@ -133,9 +152,11 @@ class StoreProvider extends React.Component {
     if (result && result === 'winner') {
       this.setState({ isGameCompleted: true });
 
-      // After this I'll Highlight the Player who won the Game usign alert box.
+      // After this I'll Highlight the Player who won the Game usign alert box after a little delay of half second.
 
-      alert(`${player} Won!`);
+      setTimeout(() => {
+        alert(`${player} Won!`);
+      }, 500);
     }
     // No Else clause here.
   };
@@ -155,6 +176,7 @@ class StoreProvider extends React.Component {
       isFirstPlayerActive: false,
       firstPlayerRecords: [],
       secondPlayerRecords: [],
+      isGameCompleted: false,
     });
   };
 
