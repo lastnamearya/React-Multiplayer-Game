@@ -48,10 +48,19 @@ export const GameDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 50px 0;
+  margin: 50px 10%;
+  width: 100%;
 `;
 
 export const GridsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50%;
+  max-width: auto;
+`;
+
+export const GridsDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -83,6 +92,7 @@ export const User = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  width: 25%;
 
   button {
     width: 50px;

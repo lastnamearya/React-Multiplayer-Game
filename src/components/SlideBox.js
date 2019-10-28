@@ -61,7 +61,7 @@ class SlideBox extends React.Component {
 
         getPlayerMoves(slideIndex);
       } else {
-        alert('Hey choose first value to play the Game 0 or x!');
+        alert('Hey choose first value to play the Game 0 or X!');
       }
     }
     // No Else clause here.
