@@ -152,6 +152,17 @@ export const User = styled.div`
 
   margin-top: 20px;
 
+  h3 {
+    margin-top: 0;
+  }
+
+  ${'' /* Player Emoji */}
+
+  #emoji {
+    font-size: 23px;
+    margin-left: 7px;
+  }
+
   button {
     width: 50px;
     height: 40px;
@@ -165,5 +176,98 @@ export const User = styled.div`
     &:hover {
       font-weight: bold;
     }
+  }
+
+  ${'' /* Tooltip */}
+
+  .tooltip {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+  }
+
+  .tooltip .top {
+    width: 80px;
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    padding: 5px 15px 5px 0px;
+    color: #fff;
+    background-color: #000;
+    font-weight: normal;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 99999999;
+    box-sizing: border-box;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    display: block;
+    white-space: nowrap;
+
+    p {
+      font-size: 14px;
+      margin-left: 15px;
+    }
+  }
+
+  .tooltip:hover .top {
+    display: block;
+  }
+
+  .tooltip .top i {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 12px;
+    overflow: hidden;
+  }
+
+  .tooltip .top i::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: #000;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  ${'' /* **** Live Dot Indicatior Animation ******* */}
+
+  @keyframes up-right {
+    0% {
+      transform: scale(1);
+      opacity: 0.25;
+    }
+
+    50% {
+      transform: scale (1, 5);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 0.25;
+    }
+  }
+
+  .circle {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    opacity: 0.25;
+    display: inline-block;
+    margin-left: 7px;
+    margin-bottom: 3px;
+  }
+
+  .green {
+    background-color: #62bd19;
+    -webkit-animation: up-right 1s infinite;
+    -moz-animation: up-right 1s infinite;
+    -o-animation: up-right 1s infinite;
+    animation: up-right 1s infinite;
   }
 `;

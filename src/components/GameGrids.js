@@ -21,7 +21,17 @@ const GameGrids = () => (
         {/* User only visible while Game is in Progress */}
         {!isGameCompleted && (
           <User>
-            <h3>
+            <div className="tooltip">
+              <h3>Player One</h3>
+              <div className="top">
+                <span role="img" aria-label="img" id="emoji">
+                  🙋‍♂️
+                </span>
+                <div className="circle green" />
+                <i></i>
+              </div>
+            </div>
+            {/* <h3>
               Player One{' '}
               <span>
                 {isFirstPlayerActive && (
@@ -30,7 +40,7 @@ const GameGrids = () => (
                   </span>
                 )}
               </span>
-            </h3>
+            </h3> */}
             {!isFirstValueSelected ? (
               <React.Fragment>
                 <p>Please Select first value to Start</p>
