@@ -1,5 +1,5 @@
 import React from 'react';
-import { matchWinningCase } from '../utils/Winner';
+import { getTotalMatchCases, matchWinningCase } from '../utils/Winner';
 
 // Creating a Context Store for our Game
 
@@ -9,7 +9,9 @@ const { Provider, Consumer } = React.createContext();
 
 class StoreProvider extends React.Component {
   state = {
+    // Toggle to Show Form on firs Landing ~ To get no of Grids
     isFormActive: true,
+    // No of grids ~ User Input
     userGridsInput: undefined,
     // Slide Array by defaut It's empty
     slidesArray: [],
@@ -27,6 +29,8 @@ class StoreProvider extends React.Component {
     secondPlayerRecords: [],
     // For Stopping user to click other Slides
     isGameCompleted: false,
+    // Total Winning Case ~ Matches ~ Empty by default
+    winningCases: [],
   };
 
   // ******************************************** //
@@ -56,9 +60,24 @@ class StoreProvider extends React.Component {
       }
 
       this.setState({ userGridsInput: numericGridValue, slidesArray, isFormActive: false });
+
+      // In Last, After getting Grid No, I'll dynamically generate total Winnigcase for that particulat Grid No, I'll do it once as it's hefty performance call that'll be only happend once in beginning.
+
+      this.generateWinningCases(numericGridValue, slidesArray);
     } else {
       alert('Please enter a number in give range to continue playing the game');
     }
+  };
+
+  // ******************************************** //
+
+  // To Generate Total Winning Match Cases
+
+  generateWinningCases = (numericGridValue, slidesArray) => {
+    const winningCases = getTotalMatchCases(numericGridValue, slidesArray);
+
+    // Then I'll save winning cases in our Store State
+    this.setState({ winningCases });
   };
 
   // ******************************************** //
@@ -177,6 +196,7 @@ class StoreProvider extends React.Component {
       firstPlayerRecords: [],
       secondPlayerRecords: [],
       isGameCompleted: false,
+      winningCases: [],
     });
   };
 
