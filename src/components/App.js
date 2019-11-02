@@ -37,7 +37,7 @@ class App extends React.Component {
               {/* If form is active then I'll show Input Form else will show Game Grids to Play */}
               {isFormActive ? (
                 <FormWrapper>
-                  <p>Please select a Number ranging from 3 - 6 for Tic-Tac-Toe Grids</p>
+                  <p>Please select a Number ranging from 3 - 8 for Tic-Tac-Toe Grids</p>
                   <form
                     onSubmit={event => {
                       // First I'll save user input (numeric value) into my Global Store

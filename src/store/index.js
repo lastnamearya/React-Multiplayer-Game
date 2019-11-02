@@ -1,5 +1,5 @@
 import React from 'react';
-import { getTotalMatchCases, matchWinningCase } from '../utils/Winner';
+import { getTotalMatchCases } from '../utils/checkWinner';
 
 // Creating a Context Store for our Game
 
@@ -44,7 +44,7 @@ class StoreProvider extends React.Component {
 
     // If the input entered by user is number ( truthy ) then I'll fire set update call. Else I'll alert user to input a right Numeric Value and Second case when the Number is less than 3.
 
-    if (numericGridValue && numericGridValue >= 3 && numericGridValue <= 6) {
+    if (numericGridValue && numericGridValue >= 3 && numericGridValue <= 8) {
       // How many Slide Boxes we're going to show, If the number is 3 (user input) then I'm going to show 9 slides ( 3 * 3). If it's 4 then I'm going to show ( 4 * 4)
 
       // Total Slides Array
@@ -161,23 +161,42 @@ class StoreProvider extends React.Component {
 
   // Check if Won ~ Matching the winning case
 
-  checkWinner = (movesArray, player) => {
-    // Here I'm passing dynamically player moves array and no of grids to the utlility function ~ matchWinningCase to find the winning match.
+  checkWinner = (playerMovesArray, currentActivePlayer) => {
+    const { winningCases, userGridsInput } = this.state;
 
-    const result = matchWinningCase(movesArray, this.state.userGridsInput);
+    // Here I'm firing a for loop to match our winning case with player moves.
 
-    // If result is the case of "winner" then I"ll reflect Game Over chagne in my Store.
+    for (let i = 0; i < winningCases.length; i++) {
+      // Intermediatory Variable as a counter that'll update if the particular winning case matches the player move.
 
-    if (result && result === 'winner') {
-      this.setState({ isGameCompleted: true });
+      let length = 0;
 
-      // After this I'll Highlight the Player who won the Game usign alert box after a little delay of half second.
+      // I'm also firing a loop over Player moves to check whether the Matching case includes player moves or not.
 
-      setTimeout(() => {
-        alert(`${player} Won!`);
-      }, 500);
+      for (let j = 0; j < playerMovesArray.length; j++) {
+        if (winningCases[i].includes(playerMovesArray[j])) {
+
+          // If the current matching case includes the player move then I'll update my counter variable length.
+
+          length++;
+        }
+        // No Else clause here, As I'm not going to do anything if it not includes player move.
+      }
+
+      // When our intermediatory variable equals to user input. Then we got our winner. That's how I matched all the winning cases.
+
+      if (length === userGridsInput) {
+        // First I'll complete the Game
+        this.setState({ isGameCompleted: true });
+
+        // After this I'll Highlight the Player who won the Game usign alert box after a little delay of half second.
+
+        setTimeout(() => {
+          alert(`${currentActivePlayer} Won!`);
+        }, 500);
+      }
+      // No Else clause here. As this code is only execute when we found a winner.
     }
-    // No Else clause here.
   };
 
   // ******************************************** //
