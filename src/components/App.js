@@ -6,6 +6,7 @@ import ReactLogo from '../styles/logo.svg';
 
 class App extends React.Component {
   state = {
+    // No of Grids ~ default form value
     gridsLength: '',
   };
 
