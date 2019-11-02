@@ -6,7 +6,7 @@ export const GameWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 40px;
 
   h1 {
     margin: 0;
@@ -50,26 +50,33 @@ export const FormWrapper = styled.div`
 
   input {
     margin-top: 5px;
-    margin-right: 8px;
     width: 180px;
-    padding: 10px;
+    padding: 10px 15px;
     outline-color: #5ed3ad;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: none;
+    border: 0.5px solid #dcdcdc;
+    border-right-color: transparent;
   }
 
   button {
     width: 90px;
-    height: 37px;
+    height: 35px;
     cursor: pointer;
     font-size: 1rem;
     color: #fff;
     font-weight: 600;
     background: #5ed4ad;
     border: none;
+    outline: none;
 
     background-color: #20bf55;
     background-image: linear-gradient(300deg, #20bf55 0%, #01baef 74%);
 
-    border-radius: 5px;
+    ${'' /* border-radius: 5px; */}
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 `;
 
