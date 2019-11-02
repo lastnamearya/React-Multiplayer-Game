@@ -73,15 +73,26 @@ export const GridsDiv = styled.div`
 
   ${'' /* Dynamically generating width based on user Grids Input */}
 
-  width: ${({ gridsLength }) => `${gridsLength * 90}px`};
+  width: ${({ gridsLength }) => `${gridsLength * 100}px`};
   height: auto;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 50px 35px 30px 40px;
 `;
 
 export const Box = styled.div`
   width: 85px;
   height: 75px;
-  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   text-align: center;
+  margin-right: 7px;
+  margin-bottom: 8px;
+
+  h2 {
+    font-size: 2rem;
+    line-height: 75px;
+    margin: 0;
+  }
 `;
 
 export const ResetGame = styled.button`
@@ -102,7 +113,8 @@ export const User = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 25%;
+  width: auto;
+
   margin-top: 20px;
 
   button {
