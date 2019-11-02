@@ -20,7 +20,7 @@ const GameGrids = () => (
       <GameDiv>
         {/* User only visible while Game is in Progress */}
         {!isGameCompleted && (
-          <User>
+          <User showTooltip={isFirstPlayerActive && true}>
             <div className="tooltip">
               <h3>Player One</h3>
               <div className="top">
@@ -31,16 +31,6 @@ const GameGrids = () => (
                 <i></i>
               </div>
             </div>
-            {/* <h3>
-              Player One{' '}
-              <span>
-                {isFirstPlayerActive && (
-                  <span role="img" aria-label="img" style={{ fontSize: '25px' }}>
-                    🙋‍♂️
-                  </span>
-                )}
-              </span>
-            </h3> */}
             {!isFirstValueSelected ? (
               <React.Fragment>
                 <p>Please Select first value to Start</p>
@@ -79,17 +69,17 @@ const GameGrids = () => (
         </GridsWrapper>
         {/* User only visible while Game is in Progress */}
         {!isGameCompleted && (
-          <User>
-            <h3>
-              Player Two{' '}
-              <span>
-                {isFirstValueSelected && !isFirstPlayerActive && (
-                  <span role="img" aria-label="img" style={{ fontSize: '25px' }}>
-                    🙋‍♂️
-                  </span>
-                )}
-              </span>
-            </h3>
+          <User showTooltip={isFirstValueSelected && !isFirstPlayerActive && true}>
+            <div className="tooltip">
+              <h3>Player Two</h3>
+              <div className="top">
+                <span role="img" aria-label="img" id="emoji">
+                  🙋‍♂️
+                </span>
+                <div className="circle green" />
+                <i></i>
+              </div>
+            </div>
             {!isFirstPlayerActive && isFirstValueSelected && (
               <p>
                 <span role="img" aria-label="img" style={{ fontSize: '25px' }}>

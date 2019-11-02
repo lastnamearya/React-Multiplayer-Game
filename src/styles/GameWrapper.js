@@ -112,6 +112,7 @@ export const GridsDiv = styled.div`
   height: auto;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   padding: 50px 35px 30px 40px;
+  border-radius: 12px;
 `;
 
 export const Box = styled.div`
@@ -202,15 +203,12 @@ export const User = styled.div`
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
     display: block;
     white-space: nowrap;
+    display: ${props => (props.showTooltip ? 'block' : 'none')};
 
     p {
       font-size: 14px;
       margin-left: 15px;
     }
-  }
-
-  .tooltip:hover .top {
-    display: block;
   }
 
   .tooltip .top i {
