@@ -175,7 +175,6 @@ class StoreProvider extends React.Component {
 
       for (let j = 0; j < playerMovesArray.length; j++) {
         if (winningCases[i].includes(playerMovesArray[j])) {
-
           // If the current matching case includes the player move then I'll update my counter variable length.
 
           length++;

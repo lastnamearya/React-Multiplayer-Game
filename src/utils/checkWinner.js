@@ -39,7 +39,6 @@ export const getTotalMatchCases = (numericGridValue, slidesArray) => {
   // Case 2: Get Vertical Match Cases ( Top to Down ~ Column )
 
   for (let i = 0; i < horizontalMatchingCases.length; i++) {
-
     // This is an intermediatory match case array I created that'll holds the current i values
 
     const matchingCase = [];
@@ -83,7 +82,6 @@ export const getTotalMatchCases = (numericGridValue, slidesArray) => {
   const lastCrossMatchCase = [];
 
   for (let i = 0; i < horizontalMatchingCases.length; i++) {
-    
     // Here I"m firing a loop that'll start from the last element of particular horizontal matching case
     for (k; k >= 0; k--) {
       lastCrossMatchCase.push(horizontalMatchingCases[i][k]);
@@ -106,4 +104,3 @@ export const getTotalMatchCases = (numericGridValue, slidesArray) => {
 };
 
 // ********************************************************* //
-

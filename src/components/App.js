@@ -1,7 +1,8 @@
 import React from 'react';
 import { StoreProvider, StoreConsumer } from '../store';
-import { GameWrapper, FormWrapper } from '../styles/GameWrapper';
 import GameGrids from './GameGrids';
+import { GameWrapper, FormWrapper } from '../styles/GameWrapper';
+import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
 
     return (
       <StoreProvider>
+        <GlobalStyles />
         <StoreConsumer>
           {({ isFormActive, getGridsNumber }) => (
             <GameWrapper>
