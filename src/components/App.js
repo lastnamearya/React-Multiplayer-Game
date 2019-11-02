@@ -29,18 +29,20 @@ class App extends React.Component {
           {({ isFormActive, getGridsNumber }) => (
             <GameWrapper>
               <img src={ReactLogo} alt="React" style={{ width: '10%', marginRight: '30px' }} />
-              <h1>React Tic-Tac-Toe</h1>
-              <p>
-                Please ignore CSS / UX{' '}
-                <span role="img" aria-label="img">
-                  🙏
-                </span>{' '}
-                for now
-              </p>
+              <h1>
+                React Tic-Tac-Toe{' '}
+                <span role="img" aria-label="play">
+                  🎮
+                </span>
+                <hr />
+              </h1>
               {/* If form is active then I'll show Input Form else will show Game Grids to Play */}
               {isFormActive ? (
                 <FormWrapper>
-                  <p>Please select a Number ranging from 3 - 8 for Tic-Tac-Toe Grids</p>
+                  <p>
+                    Please select a Number ranging from <span id="number_range">3-8</span> for
+                    Tic-Tac-Toe Grids
+                  </p>
                   <form
                     onSubmit={event => {
                       // First I'll save user input (numeric value) into my Global Store

@@ -12,6 +12,16 @@ export const GameWrapper = styled.div`
     margin: 0;
   }
 
+  hr {
+    background-color: #7cffcb;
+    background-image: linear-gradient(315deg, #01baef 0%, #7ee8fa 0%, #80ff72 74%);
+
+    height: 3px;
+    outline: none;
+    border: none;
+    margin: 5px -15px 15px -13px !important;
+  }
+
   p {
     margin-top: 5px;
   }
@@ -22,15 +32,28 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  padding: 40px 60px;
+  box-shadow: 0.5em 0.5em 1.5em 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 
   p {
     font-size: 1.2rem;
+    letter-spacing: 0.25px;
+  }
+
+  #number_range {
+    background: #46ebc3;
+    color: #fff;
+    font-weight: 600;
+    padding: 0 5px;
   }
 
   input {
+    margin-top: 5px;
     margin-right: 8px;
     width: 180px;
     padding: 10px;
+    outline-color: #5ed3ad;
   }
 
   button {
@@ -39,9 +62,14 @@ export const FormWrapper = styled.div`
     cursor: pointer;
     font-size: 1rem;
     color: #fff;
-    font-weight: 500;
+    font-weight: 600;
     background: #5ed4ad;
     border: none;
+
+    background-color: #20bf55;
+    background-image: linear-gradient(300deg, #20bf55 0%, #01baef 74%);
+
+    border-radius: 5px;
   }
 `;
 
@@ -119,9 +147,16 @@ export const User = styled.div`
 
   button {
     width: 50px;
-    height: 30px;
-    margin-bottom: 5px;
+    height: 40px;
+    margin-bottom: 12px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    line-height: 18px;
+    border: 10px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 `;
