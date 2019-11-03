@@ -6,6 +6,8 @@ export const GameWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 100%;
+  max-height: auto;
   padding-top: 40px;
 
   ${'' /* React Logo */}
@@ -60,6 +62,7 @@ export const GameWrapper = styled.div`
       margin-right: 10px;
       margin-bottom: 10px;
     }
+    overflow-y: scroll;
   }
 `;
 
@@ -259,6 +262,7 @@ export const GameDiv = styled.div`
     align-items: center;
     justify-content: flex-start;
     margin: 50px 5%;
+    height: auto;
   }
 `;
 
@@ -498,7 +502,7 @@ export const MadeBy = styled.div`
     width: 15px;
     transform: rotate(-45deg);
     animation-name: beat;
-    animation-duration: 1500ms;
+    animation-duration: 1300ms;
     animation-iteration-count: infinite;
     margin-top: 7px;
   }
