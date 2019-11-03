@@ -3,7 +3,7 @@ import SlideBox from './SlideBox';
 import { GameDiv, GridsWrapper, GridsDiv, User, ResetGame } from '../styles/Game';
 import { StoreConsumer } from '../store';
 
-const GameGrids = () => (
+const GameGrids = ({ isMobileViewActive }) => (
   <StoreConsumer>
     {({
       slidesArray,
@@ -42,7 +42,7 @@ const GameGrids = () => (
                 You Selected <span id="selected">{firstPlayerValue}</span> Now Go Play!{' '}
                 {isFirstPlayerActive && (
                   <span role="img" aria-label="img" style={{ fontSize: '25px' }}>
-                    👉
+                    {isMobileViewActive ? '👇' : '👉'}
                   </span>
                 )}
               </p>
@@ -85,7 +85,7 @@ const GameGrids = () => (
             {!isFirstPlayerActive && isFirstValueSelected && (
               <p>
                 <span role="img" aria-label="img" style={{ fontSize: '25px' }}>
-                  👈
+                  {isMobileViewActive ? '👆' : '👈'}
                 </span>{' '}
                 Your Turn!
               </p>

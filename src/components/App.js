@@ -151,7 +151,7 @@ class App extends React.Component {
                     </FormWrapper>
                   )
                 ) : (
-                  <GameGrids />
+                  <GameGrids isMobileViewActive={isMobileViewActive} />
                 )}
                 <MadeBy isFormActive={isFormActive && isFormActive}>
                   <p>
