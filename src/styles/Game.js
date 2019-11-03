@@ -298,8 +298,6 @@ export const User = styled.div`
       `};
   }
 
-  }
-
   ${'' /* Player Emoji */}
 
   #emoji {
@@ -331,7 +329,9 @@ export const User = styled.div`
     text-transform: uppercase;
     background: #46ebc3;
     padding: 2px 3px;
-    font-weight: 600;
+    font-weight: 600; 
+    ${'' /* Always will remain dark */}
+    color: ${({ theme }) => (theme.name === 'dark' ? '#000' : '#000')};
   }
 
   ${'' /* Tooltip */}
