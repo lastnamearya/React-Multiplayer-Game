@@ -530,7 +530,7 @@ export const MadeBy = styled.div`
     width: 15px;
     transform: rotate(-45deg);
     animation-name: beat;
-    animation-duration: 1300ms;
+    animation-duration: 1200ms;
     animation-iteration-count: infinite;
     margin-top: 7px;
   }
