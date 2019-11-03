@@ -9,6 +9,8 @@ class App extends React.Component {
   state = {
     // No of Grids ~ default form value
     gridsLength: '',
+    // State Variable to control Dark Theme Toggle
+    isDarkThemeActive: false,
   };
 
   // ************************ //
@@ -19,8 +21,15 @@ class App extends React.Component {
 
   // ************************ //
 
+  // Toggle for Switching Theme ~ Dark & Light
+
+  toggleActiveTheme = () =>
+    this.setState(prevState => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
+
+  // ************************ //
+
   render() {
-    const { gridsLength } = this.state;
+    const { gridsLength, isDarkThemeActive } = this.state;
 
     return (
       <StoreProvider>
@@ -31,7 +40,12 @@ class App extends React.Component {
               {/* Light and Dark Theme Switch */}
               <ThemeSwitch>
                 <label id="switch" className="switch">
-                  <input type="checkbox" id="slider" checked />
+                  <input
+                    type="checkbox"
+                    id="slider"
+                    onChange={this.toggleActiveTheme}
+                    checked={isDarkThemeActive ? false : true}
+                  />
                   <span className="slider round"></span>
                 </label>
               </ThemeSwitch>
