@@ -62,7 +62,13 @@ export const GameWrapper = styled.div`
       margin-right: 10px;
       margin-bottom: 10px;
     }
+
     overflow-y: scroll;
+
+    hr {
+      height: 4px;
+      margin-top: 7px;
+    }
   }
 `;
 
