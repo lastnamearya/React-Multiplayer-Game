@@ -17,6 +17,22 @@ class App extends React.Component {
 
   // ************************ //
 
+  // Retrieving current Active Theme through Local Storage using componentDidMount()
+
+  componentDidMount() {
+    this.retrieveActiveTheme();
+  }
+
+  // ************************ //
+
+  retrieveActiveTheme = () => {
+    const isDarkThemeActive = JSON.parse(window.localStorage.getItem('isDarkThemeActive'));
+
+    this.setState({ isDarkThemeActive });
+  };
+
+  // ************************ //
+
   // Form onChange Function for our input element
 
   handleChange = event => {
@@ -27,8 +43,15 @@ class App extends React.Component {
 
   // Toggle for Switching Theme ~ Dark & Light
 
-  toggleActiveTheme = () =>
+  toggleActiveTheme = () => {
+    // First I'm updaing my State for Theme Change
+
     this.setState(prevState => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
+
+    // Second After State Updation, I'm also persisting currrent Active Theme in LocalStorage
+
+    window.localStorage.setItem('isDarkThemeActive', JSON.stringify(!this.state.isDarkThemeActive));
+  };
 
   // ************************ //
 
