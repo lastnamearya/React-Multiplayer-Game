@@ -28,13 +28,32 @@ export const GameWrapper = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 1rem;
-  padding: 40px 60px;
-  box-shadow: 0.5em 0.5em 1.5em 0 rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+
+  ::before {
+    content: '';
+    position: absolute;
+    width: 645px;
+    height: 210px;
+    margin-left: 2.3rem;
+    border-radius: 16px;
+    background-color: #7cffcb;
+    background-image: linear-gradient(315deg, #01baef 0%, #7ee8fa 0%, #80ff72 74%);
+    opacity: 0.5;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.3rem;
+    padding: 40px 60px;
+    box-shadow: 0.5em 0.5em 1.5em 0 rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    ${'' /* z-index: 100; */}
+    position: relative;
+    background: #fff;
+  }
 
   p {
     font-size: 1.2rem;

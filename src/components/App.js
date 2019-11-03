@@ -39,27 +39,29 @@ class App extends React.Component {
               {/* If form is active then I'll show Input Form else will show Game Grids to Play */}
               {isFormActive ? (
                 <FormWrapper>
-                  <p>
-                    Please select a Number ranging from <span id="number_range">3-8</span> for
-                    Tic-Tac-Toe Grids
-                  </p>
-                  <form
-                    onSubmit={event => {
-                      // First I'll save user input (numeric value) into my Global Store
-                      getGridsNumber(event, gridsLength);
+                  <div id="form">
+                    <p>
+                      Please select a Number ranging from <span id="number_range">3-8</span> for
+                      Tic-Tac-Toe Grids
+                    </p>
+                    <form
+                      onSubmit={event => {
+                        // First I'll save user input (numeric value) into my Global Store
+                        getGridsNumber(event, gridsLength);
 
-                      // Second, I'm going to clear my Component State
-                      this.setState({ gridsLength: '' });
-                    }}
-                  >
-                    <input
-                      value={gridsLength}
-                      type="number"
-                      placeholder="Please Choose No of Grids"
-                      onChange={this.handleChange}
-                    />
-                    <button type="submit">Start</button>
-                  </form>
+                        // Second, I'm going to clear my Component State
+                        this.setState({ gridsLength: '' });
+                      }}
+                    >
+                      <input
+                        value={gridsLength}
+                        type="number"
+                        placeholder="Please Choose No of Grids"
+                        onChange={this.handleChange}
+                      />
+                      <button type="submit">Start</button>
+                    </form>
+                  </div>
                 </FormWrapper>
               ) : (
                 <GameGrids />
