@@ -42,10 +42,11 @@ export const FormWrapper = styled.div`
   }
 
   #number_range {
-    background: #46ebc3;
     color: #fff;
     font-weight: 600;
     padding: 0 5px;
+    background-color: #20bf55;
+    background-image: linear-gradient(300deg, #20bf55 0%, #01baef 74%);
   }
 
   input {
