@@ -481,6 +481,19 @@ export const User = styled.div`
     -o-animation: up-right 1s infinite;
     animation: up-right 1s infinite;
   }
+
+  ${'' /* Mobile Platform ~ Optimization */}
+
+  @media only screen and (max-device-width: 500px) {
+    button {
+      border: none;
+      width: 50px;
+      height: 49px;
+      border-radius: 50%;
+      font-weight: 600;
+    }
+  }
+
 `;
 
 export const MadeBy = styled.div`
