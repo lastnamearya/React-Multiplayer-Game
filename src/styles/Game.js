@@ -69,6 +69,15 @@ export const GameWrapper = styled.div`
       height: 4px;
       margin-top: 7px;
     }
+
+    ${'' /* Mobile ~ Background */}
+
+    ${({ theme }) =>
+      theme.name === 'light' &&
+      css`
+        background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff),
+          linear-gradient(70deg, #dbedff 32%, #ebfff0);
+      `};
   }
 `;
 
