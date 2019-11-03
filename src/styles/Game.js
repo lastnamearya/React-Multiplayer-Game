@@ -284,6 +284,13 @@ export const GridsDiv = styled.div`
   padding: 50px 35px 30px 40px;
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.boxes};
+
+  ${'' /* Mobile Platform ~ Optimization */}
+
+  @media only screen and (max-device-width: 500px) {
+    padding: 30px 20px; 
+    margin-bottom: 60px;
+  }
 `;
 
 export const Box = styled.div`
@@ -367,6 +374,7 @@ export const User = styled.div`
     &:hover {
       font-weight: bold;
     }
+
   }
 
   ${'' /* User Selected Value ~ First Player */}
