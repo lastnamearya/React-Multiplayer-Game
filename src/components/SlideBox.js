@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '../styles/GameWrapper';
+import { Box } from '../styles/Game';
 
 class SlideBox extends React.Component {
   state = {

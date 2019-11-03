@@ -68,8 +68,15 @@ export const FormWrapper = styled.div`
     background-image: linear-gradient(300deg, #20bf55 0%, #01baef 74%);
   }
 
+  ${'' /* form Element */}
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   input {
-    margin-top: 5px;
     width: 180px;
     padding: 10px 15px;
     outline-color: #5ed3ad;
@@ -82,7 +89,7 @@ export const FormWrapper = styled.div`
 
   button {
     width: 90px;
-    height: 35px;
+    height: 34px;
     cursor: pointer;
     font-size: 1rem;
     color: #fff;

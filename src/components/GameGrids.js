@@ -1,6 +1,6 @@
 import React from 'react';
 import SlideBox from './SlideBox';
-import { GameDiv, GridsWrapper, GridsDiv, User, ResetGame } from '../styles/GameWrapper';
+import { GameDiv, GridsWrapper, GridsDiv, User, ResetGame } from '../styles/Game';
 import { StoreConsumer } from '../store';
 
 const GameGrids = () => (

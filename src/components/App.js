@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoreProvider, StoreConsumer } from '../store';
 import GameGrids from './GameGrids';
-import { GameWrapper, FormWrapper } from '../styles/GameWrapper';
+import { GameWrapper, FormWrapper } from '../styles/Game';
 import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
 
