@@ -36,13 +36,22 @@ const GameGrids = ({ isMobileViewActive }) => (
                 <p>Please Select first value to Start</p>
                 <button
                   onClick={() => {
-                    window.scrollTo({ top: 200, behavior: 'smooth' });
+                    // If Mobile View is Active then I'll scroll my window to Top a bit so user can focus on Game Grid.
+                    isMobileViewActive && window.scrollTo({ top: 200, behavior: 'smooth' });
                     getFirstClickValue('o');
                   }}
                 >
                   o
                 </button>
-                <button onClick={() => getFirstClickValue('x')}>x</button>
+                <button
+                  onClick={() => {
+                    // If Mobile View is Active then I'll scroll my window to Top a bit so user can focus on Game Grid.
+                    isMobileViewActive && window.scrollTo({ top: 200, behavior: 'smooth' });
+                    getFirstClickValue('x');
+                  }}
+                >
+                  x
+                </button>
               </React.Fragment>
             ) : (
               <p>
