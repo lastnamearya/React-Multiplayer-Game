@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoreProvider, StoreConsumer } from '../store';
 import GameGrids from './GameGrids';
-import { GameWrapper, FormWrapper } from '../styles/Game';
+import { GameWrapper, ThemeSwitch, FormWrapper } from '../styles/Game';
 import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
 
@@ -28,6 +28,13 @@ class App extends React.Component {
         <StoreConsumer>
           {({ isFormActive, getGridsNumber }) => (
             <GameWrapper>
+              {/* Light and Dark Theme Switch */}
+              <ThemeSwitch>
+                <label id="switch" className="switch">
+                  <input type="checkbox" id="slider" checked />
+                  <span className="slider round"></span>
+                </label>
+              </ThemeSwitch>
               <img src={ReactLogo} alt="React" style={{ width: '10%', marginRight: '30px' }} />
               <h1>
                 React Tic-Tac-Toe{' '}
