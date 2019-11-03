@@ -288,7 +288,7 @@ export const User = styled.div`
     ${({ theme }) =>
       theme.name === 'dark' &&
       css`
-        ackground: white;
+        background: white;
         background: linear-gradient(to right, #7ee8f9, #80ff72);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -422,5 +422,72 @@ export const User = styled.div`
     -moz-animation: up-right 1s infinite;
     -o-animation: up-right 1s infinite;
     animation: up-right 1s infinite;
+  }
+`;
+
+export const MadeBy = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: ${props => (props.isFormActive ? '200px' : '30px')};
+  margin-bottom: ${props => !props.isFormActive && '50px'};
+
+  p {
+    margin-left: 10px;
+  }
+
+  .heart {
+    position: absolute;
+    margin: auto;
+    background-color: #ed3d4f;
+    height: 15px;
+    width: 15px;
+    transform: rotate(-45deg);
+    animation-name: beat;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    margin-top: 7px;
+  }
+  .heart:before,
+  .heart:after {
+    content: '';
+    background-color: #ed3d4f;
+    border-radius: 50%;
+    height: 15px;
+    position: absolute;
+    width: 15px;
+  }
+
+  .heart:before {
+    top: -7px;
+    left: 0;
+  }
+
+  .heart:after {
+    left: 7px;
+    top: 0;
+  }
+
+  #lastnamearya {
+    background: white;
+    background: linear-gradient(to right, #7ee8f9, #80ff72);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    text-shadow: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  @keyframes beat {
+    0% {
+      transform: scale(1) rotate(-45deg);
+    }
+    50% {
+      transform: scale(0.9) rotate(-45deg);
+    }
   }
 `;

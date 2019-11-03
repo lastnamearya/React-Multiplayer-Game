@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { StoreProvider, StoreConsumer } from '../store';
 import { lightTheme, darkTheme } from '../styles/Theme';
 import GameGrids from './GameGrids';
-import { GameWrapper, ThemeSwitch, FormWrapper } from '../styles/Game';
+import { GameWrapper, ThemeSwitch, FormWrapper, MadeBy } from '../styles/Game';
 import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
 
@@ -116,6 +116,25 @@ class App extends React.Component {
                 ) : (
                   <GameGrids />
                 )}
+                <MadeBy isFormActive={isFormActive && isFormActive}>
+                  <p>
+                    Made with &nbsp; <span className="heart" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and{' '}
+                    <span role="img" aria-label="play">
+                      🍺
+                    </span>{' '}
+                    by{' '}
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://lastnamearya.github.io/"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <span id="lastnamearya">lastnamearya</span>
+                    </a>
+                    &nbsp;
+                  </p>
+                </MadeBy>
               </GameWrapper>
             </ThemeProvider>
           )}
