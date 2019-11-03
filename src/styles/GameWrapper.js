@@ -149,7 +149,7 @@ export const User = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: auto;
+  width: 300px;
 
   margin-top: 20px;
 
