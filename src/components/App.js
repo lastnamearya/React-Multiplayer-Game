@@ -111,7 +111,7 @@ class App extends React.Component {
                     <span className="slider round"></span>
                   </label>
                 </ThemeSwitch>
-                <img src={ReactLogo} alt="React" style={{ width: '10%', marginRight: '30px' }} />
+                <img src={ReactLogo} alt="React" id="react-img" />
                 <h1>
                   React Tic-Tac-Toe{' '}
                   <span role="img" aria-label="play">

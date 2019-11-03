@@ -8,6 +8,15 @@ export const GameWrapper = styled.div`
   width: 100%;
   padding-top: 40px;
 
+  ${'' /* React Logo */}
+
+  #react-img {
+    width: 10%;
+    margin-right: 30px;
+  }
+
+  ${'' /* Game Heading */}
+
   h1 {
     margin: 0;
 
@@ -26,6 +35,8 @@ export const GameWrapper = styled.div`
       `};
   }
 
+  ${'' /* Line Break ~ Border Bottom */}
+
   hr {
     background-color: #7cffcb;
     background-image: linear-gradient(315deg, #01baef 0%, #7ee8fa 0%, #80ff72 74%);
@@ -39,6 +50,16 @@ export const GameWrapper = styled.div`
   p {
     margin-top: 5px;
     color: ${({ theme }) => theme.colors.text};
+  }
+
+  ${'' /* Mobile Platform ~ Optimization */}
+
+  @media only screen and (max-device-width: 500px) {
+    #react-img {
+      width: 15%;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
   }
 `;
 
@@ -230,6 +251,15 @@ export const GameDiv = styled.div`
   align-items: flex-start;
   margin: 50px 10%;
   width: 100%;
+
+  ${'' /* Mobile Platform ~ Optimization */}
+
+  @media only screen and (max-device-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 50px 5%;
+  }
 `;
 
 export const GridsWrapper = styled.div`
