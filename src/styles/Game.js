@@ -288,7 +288,7 @@ export const GridsDiv = styled.div`
   ${'' /* Mobile Platform ~ Optimization */}
 
   @media only screen and (max-device-width: 500px) {
-    padding: 30px 20px; 
+    padding: 40px 20px 30px;
     margin-bottom: 60px;
   }
 `;
