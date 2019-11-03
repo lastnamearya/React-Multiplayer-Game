@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { StoreProvider, StoreConsumer } from '../store';
 import { lightTheme, darkTheme } from '../styles/Theme';
 import GameGrids from './GameGrids';
-import { GameWrapper, ThemeSwitch, FormWrapper, MadeBy } from '../styles/Game';
+import { GameWrapper, ThemeSwitch, FormWrapper, MobileStart, MadeBy } from '../styles/Game';
 import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
 
@@ -13,17 +13,42 @@ class App extends React.Component {
     gridsLength: '',
     // State Variable to control Dark Theme Toggle
     isDarkThemeActive: false,
+    // For Mobile View (width)~ I'll show direct Start Button with 3 Grids as default
+    viewPortwidth: 0,
   };
 
   // ************************ //
 
-  // Retrieving current Active Theme through Local Storage using componentDidMount()
+  // Retrieving current Active Theme through Local Storage using componentDidMount() Lifecycyle + Also getting Width of current Device for Mobiel Form Toggle.
 
   componentDidMount() {
     this.retrieveActiveTheme();
+
+    // To get Very First viewport Width.
+
+    this.updateWindowDimensions();
+
+    // Adding Event Listener to get Current Width of viewport when user resizes the Image.
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  // **************************** //
+
+  // I'll remove this Event Listner when component unmounted from DOM
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
   // ************************ //
+
+  // Updating out State for current viewport width
+
+  updateWindowDimensions = () => this.setState({ viewPortwidth: window.innerWidth });
+
+  // ************************ //
+
+  // Local Storage read to get current Theme
 
   retrieveActiveTheme = () => {
     const isDarkThemeActive = JSON.parse(window.localStorage.getItem('isDarkThemeActive'));
@@ -56,7 +81,15 @@ class App extends React.Component {
   // ************************ //
 
   render() {
-    const { gridsLength, isDarkThemeActive } = this.state;
+    const { gridsLength, isDarkThemeActive, viewPortwidth } = this.state;
+
+    // *************************** //
+
+    // On Mobile Devices I"m only going to show a Start Button that'll on clicking will choose 3 Grids as default. I won't show Grid Selector form on Mobile Platform. If current ViewPortWidth is less than or equal to 500 then I'll make isMobileActive truthy.
+
+    const isMobileViewActive = viewPortwidth <= 500;
+
+    // *************************** //
 
     return (
       <StoreProvider>
@@ -86,33 +119,37 @@ class App extends React.Component {
                   </span>
                   <hr />
                 </h1>
-                {/* If form is active then I'll show Input Form else will show Game Grids to Play */}
+                {/* If form is active then I'll show Input Form else will show Game Grids to Play. On Mobile Platform I'll show Start Button */}
                 {isFormActive ? (
-                  <FormWrapper>
-                    <div id="form">
-                      <p>
-                        Please select a Number ranging from <span id="number_range">3-8</span> for
-                        Tic-Tac-Toe Grids
-                      </p>
-                      <form
-                        onSubmit={event => {
-                          // First I'll save user input (numeric value) into my Global Store
-                          getGridsNumber(event, gridsLength);
+                  isMobileViewActive ? (
+                    <MobileStart onClick={event => getGridsNumber(event, 3)}>Play</MobileStart>
+                  ) : (
+                    <FormWrapper>
+                      <div id="form">
+                        <p>
+                          Please select a Number ranging from <span id="number_range">3-8</span> for
+                          Tic-Tac-Toe Grids
+                        </p>
+                        <form
+                          onSubmit={event => {
+                            // First I'll save user input (numeric value) into my Global Store
+                            getGridsNumber(event, gridsLength);
 
-                          // Second, I'm going to clear my Component State
-                          this.setState({ gridsLength: '' });
-                        }}
-                      >
-                        <input
-                          value={gridsLength}
-                          type="number"
-                          placeholder="Please Choose No of Grids"
-                          onChange={this.handleChange}
-                        />
-                        <button type="submit">Start</button>
-                      </form>
-                    </div>
-                  </FormWrapper>
+                            // Second, I'm going to clear my Component State
+                            this.setState({ gridsLength: '' });
+                          }}
+                        >
+                          <input
+                            value={gridsLength}
+                            type="number"
+                            placeholder="Please Choose No of Grids"
+                            onChange={this.handleChange}
+                          />
+                          <button type="submit">Start</button>
+                        </form>
+                      </div>
+                    </FormWrapper>
+                  )
                 ) : (
                   <GameGrids />
                 )}

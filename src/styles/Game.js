@@ -204,6 +204,22 @@ export const FormWrapper = styled.div`
   }
 `;
 
+export const MobileStart = styled.button`
+  width: 190px;
+  height: 50px;
+  background-color: #20bf55;
+  background-image: linear-gradient(300deg, #20bf55 0%, #01baef 74%);
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.25rem;
+  outline: none;
+  cursor: pointer;
+  margin-top: 140px;
+  box-shadow: 0 20px 50px rgba(1, 186, 239, 0.6);
+`;
+
 // ********************************* //
 
 // Game Grids
