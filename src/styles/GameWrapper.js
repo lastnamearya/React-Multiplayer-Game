@@ -179,6 +179,15 @@ export const User = styled.div`
     }
   }
 
+  ${'' /* User Selected Value ~ First Player */}
+
+  #selected {
+    text-transform: uppercase;
+    background: #46ebc3;
+    padding: 2px 3px;
+    font-weight: 600;
+  }
+
   ${'' /* Tooltip */}
 
   .tooltip {

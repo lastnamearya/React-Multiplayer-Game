@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
  }
 
  code {
@@ -15,3 +17,11 @@ const GlobalStyles = createGlobalStyle`
   `;
 
 export default GlobalStyles;
+
+// background: white;
+//     background: linear-gradient(to right, #7EE8F9, #80ff72);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     -webkit-box-decoration-break: clone;
+//     box-decoration-break: clone;
+//     text-shadow: none;

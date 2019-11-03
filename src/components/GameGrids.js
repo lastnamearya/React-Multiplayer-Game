@@ -39,8 +39,7 @@ const GameGrids = () => (
               </React.Fragment>
             ) : (
               <p>
-                You Selected <span style={{ textTransform: 'uppercase' }}>{firstPlayerValue}</span>{' '}
-                Now Go Play!{' '}
+                You Selected <span id="selected">{firstPlayerValue}</span> Now Go Play!{' '}
                 {isFirstPlayerActive && (
                   <span role="img" aria-label="img" style={{ fontSize: '25px' }}>
                     👉
