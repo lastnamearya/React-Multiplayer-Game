@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const GameWrapper = styled.div`
   display: flex;
@@ -10,6 +10,20 @@ export const GameWrapper = styled.div`
 
   h1 {
     margin: 0;
+
+    ${'' /* Heading Color / Style Changes for Dark Theme */}
+
+    ${({ theme }) =>
+      theme.name === 'dark' &&
+      css`
+        ackground: white;
+        background: linear-gradient(to right, #7ee8f9, #80ff72);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow: none;
+      `};
   }
 
   hr {
