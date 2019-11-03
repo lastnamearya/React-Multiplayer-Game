@@ -63,7 +63,10 @@ const GameGrids = () => (
                 getPlayerMoves={getPlayerMoves}
               />
             ))}
-            <ResetGame onClick={resetGame}>Reset Game</ResetGame>
+            {/* When Game is Completed ~ I'll show Replay Game instead of Reset Game */}
+            <ResetGame onClick={resetGame}>
+              {isGameCompleted ? 'Replay Game' : 'Reset Game'}
+            </ResetGame>
           </GridsDiv>
         </GridsWrapper>
         {/* User only visible while Game is in Progress */}
