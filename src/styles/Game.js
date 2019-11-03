@@ -38,6 +38,7 @@ export const GameWrapper = styled.div`
 
   p {
     margin-top: 5px;
+    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
@@ -124,7 +125,7 @@ export const FormWrapper = styled.div`
     content: '';
     position: absolute;
     width: 645px;
-    height: 205px;
+    height: 200px;
     margin-left: 2.3rem;
     border-radius: 16px;
     background-color: #7cffcb;
@@ -136,18 +137,18 @@ export const FormWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 1.3rem;
+    margin-top: 1.2rem;
     padding: 40px 60px;
     box-shadow: 0.5em 0.5em 1.5em 0 rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    ${'' /* z-index: 100; */}
     position: relative;
-    background: #fff;
+    background: ${({ theme }) => theme.colors.boxes};
   }
 
   p {
     font-size: 1.2rem;
     letter-spacing: 0.25px;
+    color: ${({ theme }) => theme.colors.text};
   }
 
   #number_range {
@@ -172,9 +173,15 @@ export const FormWrapper = styled.div`
     outline-color: #5ed3ad;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    border: none;
-    border: 0.5px solid #dcdcdc;
+    border: ${({ theme }) =>
+      theme.name === 'dark' ? '0.5px solid #505A5F' : '0.5px solid #dcdcdc'};
     border-right-color: transparent;
+    background: ${({ theme }) => theme.name === 'dark' && '#505A5F'};
+    color: ${({ theme }) => theme.colors.text};
+
+    ::placeholder {
+      color: ${({ theme }) => theme.name === 'dark' && theme.colors.text};
+    }
   }
 
   button {
@@ -230,6 +237,7 @@ export const GridsDiv = styled.div`
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   padding: 50px 35px 30px 40px;
   border-radius: 12px;
+  background: ${({ theme }) => theme.colors.boxes};
 `;
 
 export const Box = styled.div`
@@ -240,11 +248,13 @@ export const Box = styled.div`
   text-align: center;
   margin-right: 7px;
   margin-bottom: 8px;
+  background: ${({ theme }) => theme.colors.background};
 
   h2 {
     font-size: 2rem;
     line-height: 75px;
     margin: 0;
+    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
@@ -272,6 +282,22 @@ export const User = styled.div`
 
   h3 {
     margin-top: 0;
+
+    ${'' /*  Color / Style Changes for Dark Theme */}
+
+    ${({ theme }) =>
+      theme.name === 'dark' &&
+      css`
+        ackground: white;
+        background: linear-gradient(to right, #7ee8f9, #80ff72);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow: none;
+      `};
+  }
+
   }
 
   ${'' /* Player Emoji */}
@@ -289,7 +315,10 @@ export const User = styled.div`
     font-size: 1.2rem;
     line-height: 18px;
     border: 10px solid #fff;
+    border: ${({ theme }) => (theme.name === 'dark' ? '10px solid #000;' : '10px solid #fff;')};
+    background: ${({ theme }) => theme.colors.boxes};
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    color: ${({ theme }) => theme.colors.text};
 
     &:hover {
       font-weight: bold;
