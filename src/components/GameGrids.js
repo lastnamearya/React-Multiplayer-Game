@@ -66,7 +66,7 @@ const GameGrids = ({ isMobileViewActive }) => (
           </User>
         )}
         <GridsWrapper>
-          <GridsDiv gridsLength={userGridsInput}>
+          <GridsDiv gridsLength={userGridsInput} isMobileViewActive={isMobileViewActive}>
             {slidesArray.map(index => (
               <SlideBox
                 key={index}
