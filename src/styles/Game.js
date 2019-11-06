@@ -307,7 +307,8 @@ export const GridsDiv = styled.div`
   ${'' /* Adding Gradient in Light Theme ~ Only for Desktop */}
 
   ${({ theme, isMobileViewActive }) =>
-    theme.name === 'light' && !isMobileViewActive &&
+    theme.name === 'light' &&
+    !isMobileViewActive &&
     css`
       background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff),
         linear-gradient(70deg, #dbedff 32%, #ebfff0);

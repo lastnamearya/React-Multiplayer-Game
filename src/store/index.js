@@ -17,8 +17,6 @@ class StoreProvider extends React.Component {
     slidesArray: [],
     // First onClick ~to Start the Game.
     isFirstValueSelected: false,
-    // When someone wins the Game, I'll show a confetti Animation
-    isConfettiActive: false,
     // Player One Value ~ Either O or X
     firstPlayerValue: undefined,
     // Player Two Value ~ Either O or X
@@ -33,6 +31,8 @@ class StoreProvider extends React.Component {
     isGameCompleted: false,
     // Total Winning Case ~ Matches ~ Empty by default
     winningCases: [],
+    // Winner of the Game
+    winner: undefined,
   };
 
   // ******************************************** //
@@ -190,7 +190,6 @@ class StoreProvider extends React.Component {
         // First I'll complete the Game
         this.setState({
           isGameCompleted: true,
-          isConfettiActive: true,
           winner: currentActivePlayer,
         });
       }
@@ -208,7 +207,6 @@ class StoreProvider extends React.Component {
       userGridsInput: undefined,
       slidesArray: [],
       isFirstValueSelected: false,
-      isConfettiActive: false,
       firstPlayerValue: undefined,
       secondPlayerValue: undefined,
       isFirstPlayerActive: false,
@@ -216,6 +214,7 @@ class StoreProvider extends React.Component {
       secondPlayerRecords: [],
       isGameCompleted: false,
       winningCases: [],
+      winner: undefined,
     });
   };
 

@@ -98,12 +98,12 @@ class App extends React.Component {
     return (
       <StoreProvider>
         <StoreConsumer>
-          {({ isFormActive, isConfettiActive, getGridsNumber }) => (
+          {({ isFormActive, winner, getGridsNumber }) => (
             <ThemeProvider theme={isDarkThemeActive ? darkTheme : lightTheme}>
               {/* Global Styles File */}
               <GlobalStyles />
-              {/* React Confetti ~ Animation Component, I'll show when someone win the Game */}
-              {isConfettiActive && <Confetti width={viewPortwidth} height={viewPortHeight} />}
+              {/* React Confetti ~ Animation Component, I'll show when someone win the Game ( when winner becomes a truthy value. ) */}
+              {winner && <Confetti width={viewPortwidth} height={viewPortHeight} />}
               <GameWrapper>
                 {/* Light and Dark Theme Switch */}
                 <ThemeSwitch>
@@ -118,13 +118,24 @@ class App extends React.Component {
                   </label>
                 </ThemeSwitch>
                 <img src={ReactLogo} alt="React" id="react-img" />
-                <h1>
-                  React Tic-Tac-Toe{' '}
-                  <span role="img" aria-label="play">
-                    🎮
-                  </span>
-                  <hr />
-                </h1>
+                {/* When someone won the Match then I'll manipulte the Heading with winning status */}
+                {winner ? (
+                  <h1>
+                    {winner} Won{' '}
+                    <span role="img" aria-label="play">
+                      🥳🎖
+                    </span>
+                    <hr />
+                  </h1>
+                ) : (
+                  <h1>
+                    React Tic-Tac-Toe{' '}
+                    <span role="img" aria-label="play">
+                      🎮
+                    </span>
+                    <hr />
+                  </h1>
+                )}
                 {/* If form is active then I'll show Input Form else will show Game Grids to Play. On Mobile Platform I'll show Start Button */}
                 {isFormActive ? (
                   isMobileViewActive ? (
