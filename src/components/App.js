@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import Confetti from 'react-confetti';
 import { StoreProvider, StoreConsumer } from '../store';
 import { lightTheme, darkTheme } from '../styles/Theme';
 import GameGrids from './GameGrids';
@@ -15,6 +16,8 @@ class App extends React.Component {
     isDarkThemeActive: false,
     // For Mobile View (width)~ I'll show direct Start Button with 3 Grids as default
     viewPortwidth: 0,
+    // Height ~ For React Confetti ( Render when someone wins the Game )
+    viewPortHeight: 0,
   };
 
   // ************************ //
@@ -44,7 +47,8 @@ class App extends React.Component {
 
   // Updating out State for current viewport width
 
-  updateWindowDimensions = () => this.setState({ viewPortwidth: window.innerWidth });
+  updateWindowDimensions = () =>
+    this.setState({ viewPortwidth: window.innerWidth, viewPortHeight: window.innerHeight });
 
   // ************************ //
 
@@ -81,7 +85,7 @@ class App extends React.Component {
   // ************************ //
 
   render() {
-    const { gridsLength, isDarkThemeActive, viewPortwidth } = this.state;
+    const { gridsLength, isDarkThemeActive, viewPortwidth, viewPortHeight } = this.state;
 
     // *************************** //
 
@@ -94,10 +98,12 @@ class App extends React.Component {
     return (
       <StoreProvider>
         <StoreConsumer>
-          {({ isFormActive, getGridsNumber }) => (
+          {({ isFormActive, isConfettiActive, getGridsNumber }) => (
             <ThemeProvider theme={isDarkThemeActive ? darkTheme : lightTheme}>
               {/* Global Styles File */}
               <GlobalStyles />
+              {/* React Confetti ~ Animation Component, I'll show when someone win the Game */}
+              {isConfettiActive && <Confetti width={viewPortwidth} height={viewPortHeight} />}
               <GameWrapper>
                 {/* Light and Dark Theme Switch */}
                 <ThemeSwitch>

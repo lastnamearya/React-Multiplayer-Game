@@ -17,6 +17,8 @@ class StoreProvider extends React.Component {
     slidesArray: [],
     // First onClick ~to Start the Game.
     isFirstValueSelected: false,
+    // When someone wins the Game, I'll show a confetti Animation
+    isConfettiActive: false,
     // Player One Value ~ Either O or X
     firstPlayerValue: undefined,
     // Player Two Value ~ Either O or X
@@ -182,17 +184,15 @@ class StoreProvider extends React.Component {
         // No Else clause here, As I'm not going to do anything if it not includes player move.
       }
 
-      // When our intermediatory variable equals to user input. Then we got our winner. That's how I matched all the winning cases.
+      // When our intermediatory variable equals to user input. Then we got our winner. That's how I matched all the winning cases. When Someone wins the game I'll highlight the winner and add a confetti winning Animation in my UI.
 
       if (length === userGridsInput) {
         // First I'll complete the Game
-        this.setState({ isGameCompleted: true });
-
-        // After this I'll Highlight the Player who won the Game usign alert box after a little delay of half second.
-
-        setTimeout(() => {
-          alert(`${currentActivePlayer} Won!`);
-        }, 500);
+        this.setState({
+          isGameCompleted: true,
+          isConfettiActive: true,
+          winner: currentActivePlayer,
+        });
       }
       // No Else clause here. As this code is only execute when we found a winner.
     }
@@ -208,6 +208,7 @@ class StoreProvider extends React.Component {
       userGridsInput: undefined,
       slidesArray: [],
       isFirstValueSelected: false,
+      isConfettiActive: false,
       firstPlayerValue: undefined,
       secondPlayerValue: undefined,
       isFirstPlayerActive: false,
