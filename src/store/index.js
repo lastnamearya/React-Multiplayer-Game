@@ -37,6 +37,30 @@ class StoreProvider extends React.Component {
 
   // ******************************************** //
 
+  // Bug Fixed ~ Game Over when no one won and moved played.
+
+  componentDidUpdate(prevState) {
+    if (
+      prevState.firstPlayerRecords !== this.state.firstPlayerRecords ||
+      prevState.secondPlayerRecords !== this.state.secondPlayerRecords
+    ) {
+      if (this.state.slidesArray.length >= 1 && !this.state.isGameCompleted) {
+        const { firstPlayerRecords, secondPlayerRecords, slidesArray } = this.state;
+
+        const movesPlayed = firstPlayerRecords.length + secondPlayerRecords.length;
+
+        if (slidesArray.length === movesPlayed) {
+          this.setState({ isGameCompleted: true });
+        }
+        // No Else clause here.
+      }
+      // No Else clause here.
+    }
+    // No Else clause here.
+  }
+
+  // ******************************************** //
+
   // Function to get No of Grids Input from user
 
   getGridsNumber = (event, gridsNumber) => {
@@ -229,6 +253,7 @@ class StoreProvider extends React.Component {
           getFirstClickValue: this.getFirstClickValue,
           toggleCurrentActivePlayer: this.toggleCurrentActivePlayer,
           getPlayerMoves: this.getPlayerMoves,
+          endGame: this.endGame,
           resetGame: this.resetGame,
         }}
       >
