@@ -6,6 +6,7 @@
     "react": "^16.11.0",
     "react-confetti": "^5.0.1",
     "react-dom": "^16.11.0",
+    "react-gtm-module": "^2.0.8",
     "react-scripts": "3.2.0",
     "styled-components": "^4.4.0"
   },

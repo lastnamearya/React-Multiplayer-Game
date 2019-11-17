@@ -314,7 +314,6 @@ export const GridsDiv = styled.div`
         linear-gradient(70deg, #dbedff 32%, #ebfff0);
     `};
 
-
   ${'' /* Mobile Platform ~ Optimization */}
 
   @media only screen and (max-device-width: 500px) {

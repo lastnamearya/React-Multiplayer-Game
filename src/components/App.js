@@ -1,4 +1,5 @@
 import React from 'react';
+import TagManager from 'react-gtm-module';
 import { ThemeProvider } from 'styled-components';
 import Confetti from 'react-confetti';
 import { StoreProvider, StoreConsumer } from '../store';
@@ -7,6 +8,14 @@ import GameGrids from './GameGrids';
 import { GameWrapper, ThemeSwitch, FormWrapper, MobileStart, MadeBy } from '../styles/Game';
 import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
+
+// Google Tag ID
+
+const tagManagerArgs = {
+  gtmId: 'UA-152745341-1',
+};
+
+// ******************************************* //
 
 class App extends React.Component {
   state = {
@@ -25,6 +34,11 @@ class App extends React.Component {
   // Retrieving current Active Theme through Local Storage using componentDidMount() Lifecycyle + Also getting Width of current Device for Mobiel Form Toggle.
 
   componentDidMount() {
+    // Google Adsense
+    TagManager.initialize(tagManagerArgs);
+
+    // Retrieving Local Storage Theme
+
     this.retrieveActiveTheme();
 
     // To get Very First viewport Width.
