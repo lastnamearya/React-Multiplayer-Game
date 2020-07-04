@@ -90,7 +90,7 @@ class App extends React.Component {
               {winner && <Confetti width={viewPortwidth} height={viewPortHeight} />}
               <GameWrapper>
                 <ThemeSwitch>
-                  <iframe src="https://ghbtns.com/github-btn.html?user=lastnamearya&repo=React.js-Multiplayer-Game&type=star&count=true" frameBorder="0" scrolling="0" width="150" height="20" title="GitHub" id="github"></iframe>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=lastnamearya&repo=React-Multiplayer-Game&type=star&count=true" frameBorder="0" scrolling="0" width="150" height="20" title="GitHub" id="github"></iframe>
                   <label id="switch" className="switch">
                     <input
                       type="checkbox"
