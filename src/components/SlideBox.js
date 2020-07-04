@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Box } from '../styles/Game';
 
 class SlideBox extends React.Component {
@@ -6,8 +7,6 @@ class SlideBox extends React.Component {
     showValue: false,
     currentValue: undefined,
   };
-
-  // ********************************* //
 
   // To stop overriding of current Value I'll limit componnet Did Update here using shouldComponetnUpdate Lifecyle Hook based on state's showValue
 
@@ -18,8 +17,6 @@ class SlideBox extends React.Component {
       return false;
     }
   }
-
-  // *********************************** //
 
   // Once Player First Selects initial Value then I'll fire this lifecyle to get Initial Current Value.
 

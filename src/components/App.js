@@ -4,8 +4,8 @@ import Confetti from 'react-confetti';
 
 import { StoreProvider, StoreConsumer } from '../store';
 import { lightTheme, darkTheme } from '../styles/Theme';
-import GameGrids from './GameGrids';
 import { GameWrapper, ThemeSwitch, FormWrapper, MobileStart, MadeBy } from '../styles/Game';
+import GameGrids from './GameGrids';
 import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
 
@@ -36,22 +36,16 @@ class App extends React.Component {
     window.addEventListener('resize', this.updateWindowDimensions);
   }
 
-  // **************************** //
-
   // I'll remove this Event Listner when component unmounted from DOM
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
-  // ************************ //
-
   // Updating out State for current viewport width
 
   updateWindowDimensions = () =>
     this.setState({ viewPortwidth: window.innerWidth, viewPortHeight: window.innerHeight });
-
-  // ************************ //
 
   // Local Storage read to get current Theme
 
@@ -61,25 +55,19 @@ class App extends React.Component {
     this.setState({ isDarkThemeActive });
   };
 
-  // ************************ //
-
   // Form onChange Function for our input element
 
   handleChange = event => {
     this.setState({ gridsLength: event.target.value });
   };
 
-  // ************************ //
-
   // Toggle for Switching Theme ~ Dark & Light
 
   toggleActiveTheme = () => {
     // First I'm updaing my State for Theme Change
-
     this.setState(prevState => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
 
     // Second After State Updation, I'm also persisting currrent Active Theme in LocalStorage
-
     window.localStorage.setItem('isDarkThemeActive', JSON.stringify(!this.state.isDarkThemeActive));
   };
 
@@ -88,13 +76,8 @@ class App extends React.Component {
   render() {
     const { gridsLength, isDarkThemeActive, viewPortwidth, viewPortHeight } = this.state;
 
-    // *************************** //
-
     // On Mobile Devices I"m only going to show a Start Button that'll on clicking will choose 3 Grids as default. I won't show Grid Selector form on Mobile Platform. If current ViewPortWidth is less than or equal to 500 then I'll make isMobileActive truthy.
-
     const isMobileViewActive = viewPortwidth <= 500;
-
-    // *************************** //
 
     return (
       <StoreProvider>
@@ -106,8 +89,8 @@ class App extends React.Component {
               {/* React Confetti ~ Animation Component, I'll show when someone win the Game ( when winner becomes a truthy value. ) */}
               {winner && <Confetti width={viewPortwidth} height={viewPortHeight} />}
               <GameWrapper>
-                {/* Light and Dark Theme Switch */}
                 <ThemeSwitch>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=lastnamearya&repo=React.js-Multiplayer-Game&type=star&count=true" frameBorder="0" scrolling="0" width="150" height="20" title="GitHub" id="github"></iframe>
                   <label id="switch" className="switch">
                     <input
                       type="checkbox"

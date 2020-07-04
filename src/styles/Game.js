@@ -25,8 +25,8 @@ export const GameWrapper = styled.div`
     ${'' /* Heading Color / Style Changes for Dark Theme */}
 
     ${({ theme }) =>
-      theme.name === 'dark' &&
-      css`
+    theme.name === 'dark' &&
+    css`
         ackground: white;
         background: linear-gradient(to right, #7ee8f9, #80ff72);
         -webkit-background-clip: text;
@@ -73,8 +73,8 @@ export const GameWrapper = styled.div`
     ${'' /* Mobile ~ Background */}
 
     ${({ theme }) =>
-      theme.name === 'light' &&
-      css`
+    theme.name === 'light' &&
+    css`
         background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff),
           linear-gradient(70deg, #dbedff 32%, #ebfff0);
       `};
@@ -155,6 +155,12 @@ export const ThemeSwitch = styled.div`
   .slider.round:before {
     border-radius: 50%;
   }
+
+   @media only screen and (max-device-width: 500px) {
+    #github {
+      display: none;
+    }
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -163,7 +169,7 @@ export const FormWrapper = styled.div`
   ::before {
     content: '';
     position: absolute;
-    width: 645px;
+    width: 673px;
     height: 200px;
     margin-left: 2.3rem;
     border-radius: 16px;
@@ -213,7 +219,7 @@ export const FormWrapper = styled.div`
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border: ${({ theme }) =>
-      theme.name === 'dark' ? '0.5px solid #505A5F' : '0.5px solid #dcdcdc'};
+    theme.name === 'dark' ? '0.5px solid #505A5F' : '0.5px solid #dcdcdc'};
     border-right-color: transparent;
     background: ${({ theme }) => theme.name === 'dark' && '#505A5F'};
     color: ${({ theme }) => theme.colors.text};
@@ -225,7 +231,7 @@ export const FormWrapper = styled.div`
 
   button {
     width: 90px;
-    height: 34px;
+    height: 36px;
     cursor: pointer;
     font-size: 1rem;
     color: #fff;
@@ -348,7 +354,7 @@ export const ResetGame = styled.button`
   background: linear-gradient(-45deg, #ec1943, #f0486a);
   border: none;
   color: #fff;
-  width: 140px;
+  width: 160px;
   height: 40px;
   border-radius: 40px;
 `;
@@ -368,8 +374,8 @@ export const User = styled.div`
     ${'' /*  Color / Style Changes for Dark Theme */}
 
     ${({ theme }) =>
-      theme.name === 'dark' &&
-      css`
+    theme.name === 'dark' &&
+    css`
         background: white;
         background: linear-gradient(to right, #7ee8f9, #80ff72);
         -webkit-background-clip: text;
