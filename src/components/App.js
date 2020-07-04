@@ -1,21 +1,13 @@
 import React from 'react';
-import TagManager from 'react-gtm-module';
 import { ThemeProvider } from 'styled-components';
 import Confetti from 'react-confetti';
+
 import { StoreProvider, StoreConsumer } from '../store';
 import { lightTheme, darkTheme } from '../styles/Theme';
 import GameGrids from './GameGrids';
 import { GameWrapper, ThemeSwitch, FormWrapper, MobileStart, MadeBy } from '../styles/Game';
 import GlobalStyles from '../styles/GlobalStyles';
 import ReactLogo from '../styles/logo.svg';
-
-// Google Tag ID
-
-const tagManagerArgs = {
-  gtmId: 'UA-152745341-1',
-};
-
-// ******************************************* //
 
 class App extends React.Component {
   state = {
@@ -34,15 +26,10 @@ class App extends React.Component {
   // Retrieving current Active Theme through Local Storage using componentDidMount() Lifecycyle + Also getting Width of current Device for Mobiel Form Toggle.
 
   componentDidMount() {
-    // Google Adsense
-    TagManager.initialize(tagManagerArgs);
-
     // Retrieving Local Storage Theme
-
     this.retrieveActiveTheme();
 
     // To get Very First viewport Width.
-
     this.updateWindowDimensions();
 
     // Adding Event Listener to get Current Width of viewport when user resizes the Image.
@@ -142,48 +129,48 @@ class App extends React.Component {
                     <hr />
                   </h1>
                 ) : (
-                  <h1>
-                    React Tic-Tac-Toe{' '}
-                    <span role="img" aria-label="play">
-                      🎮
+                    <h1>
+                      React Tic-Tac-Toe{' '}
+                      <span role="img" aria-label="play">
+                        🎮
                     </span>
-                    <hr />
-                  </h1>
-                )}
+                      <hr />
+                    </h1>
+                  )}
                 {/* If form is active then I'll show Input Form else will show Game Grids to Play. On Mobile Platform I'll show Start Button */}
                 {isFormActive ? (
                   isMobileViewActive ? (
                     <MobileStart onClick={event => getGridsNumber(event, 3)}>Play</MobileStart>
                   ) : (
-                    <FormWrapper>
-                      <div id="form">
-                        <p>
-                          Please select a Number ranging from <span id="number_range">3-8</span> for
+                      <FormWrapper>
+                        <div id="form">
+                          <p>
+                            Please select a Number ranging from <span id="number_range">3-8</span> for
                           Tic-Tac-Toe Grids
                         </p>
-                        <form
-                          onSubmit={event => {
-                            // First I'll save user input (numeric value) into my Global Store
-                            getGridsNumber(event, gridsLength);
+                          <form
+                            onSubmit={event => {
+                              // First I'll save user input (numeric value) into my Global Store
+                              getGridsNumber(event, gridsLength);
 
-                            // Second, I'm going to clear my Component State
-                            this.setState({ gridsLength: '' });
-                          }}
-                        >
-                          <input
-                            value={gridsLength}
-                            type="number"
-                            placeholder="Please Choose No of Grids"
-                            onChange={this.handleChange}
-                          />
-                          <button type="submit">Start</button>
-                        </form>
-                      </div>
-                    </FormWrapper>
-                  )
+                              // Second, I'm going to clear my Component State
+                              this.setState({ gridsLength: '' });
+                            }}
+                          >
+                            <input
+                              value={gridsLength}
+                              type="number"
+                              placeholder="Please Choose No of Grids"
+                              onChange={this.handleChange}
+                            />
+                            <button type="submit">Start</button>
+                          </form>
+                        </div>
+                      </FormWrapper>
+                    )
                 ) : (
-                  <GameGrids isMobileViewActive={isMobileViewActive} />
-                )}
+                    <GameGrids isMobileViewActive={isMobileViewActive} />
+                  )}
                 <MadeBy isFormActive={isFormActive && isFormActive}>
                   <p>
                     Made with &nbsp; <span className="heart" />

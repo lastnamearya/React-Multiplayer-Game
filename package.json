@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.11.0",
+    "react": "^16.13.1",
     "react-confetti": "^5.0.1",
-    "react-dom": "^16.11.0",
-    "react-gtm-module": "^2.0.8",
-    "react-scripts": "3.2.0",
-    "styled-components": "^4.4.0"
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
