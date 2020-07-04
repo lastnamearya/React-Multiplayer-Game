@@ -155,6 +155,12 @@ export const ThemeSwitch = styled.div`
   .slider.round:before {
     border-radius: 50%;
   }
+
+   @media only screen and (max-device-width: 500px) {
+    #github {
+      display: none;
+    }
+  }
 `;
 
 export const FormWrapper = styled.div`
