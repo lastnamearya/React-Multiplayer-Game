@@ -1,11 +1,9 @@
 import React from 'react';
+
 import { getTotalMatchCases } from '../utils/checkWinner';
 
 // Creating a Context Store for our Game
-
 const { Provider, Consumer } = React.createContext();
-
-// **************************************** //
 
 class StoreProvider extends React.Component {
   state = {
@@ -174,16 +172,12 @@ class StoreProvider extends React.Component {
     this.toggleCurrentActivePlayer();
   };
 
-  // ******************************************** //
-
   // Toggle Current Active Player ~ It'll change the current Active Player
 
   toggleCurrentActivePlayer = () =>
     this.setState(prevState => ({
       isFirstPlayerActive: !prevState.isFirstPlayerActive,
     }));
-
-  // ******************************************** //
 
   // Check if Won ~ Matching the winning case
 
@@ -220,8 +214,6 @@ class StoreProvider extends React.Component {
       // No Else clause here. As this code is only execute when we found a winner.
     }
   };
-
-  // ******************************************** //
 
   // Reset Game Function ~ on Clicking Reset ( It'll completely reset our Store State )
 

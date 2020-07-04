@@ -25,8 +25,8 @@ export const GameWrapper = styled.div`
     ${'' /* Heading Color / Style Changes for Dark Theme */}
 
     ${({ theme }) =>
-      theme.name === 'dark' &&
-      css`
+    theme.name === 'dark' &&
+    css`
         ackground: white;
         background: linear-gradient(to right, #7ee8f9, #80ff72);
         -webkit-background-clip: text;
@@ -73,8 +73,8 @@ export const GameWrapper = styled.div`
     ${'' /* Mobile ~ Background */}
 
     ${({ theme }) =>
-      theme.name === 'light' &&
-      css`
+    theme.name === 'light' &&
+    css`
         background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff),
           linear-gradient(70deg, #dbedff 32%, #ebfff0);
       `};
@@ -213,7 +213,7 @@ export const FormWrapper = styled.div`
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border: ${({ theme }) =>
-      theme.name === 'dark' ? '0.5px solid #505A5F' : '0.5px solid #dcdcdc'};
+    theme.name === 'dark' ? '0.5px solid #505A5F' : '0.5px solid #dcdcdc'};
     border-right-color: transparent;
     background: ${({ theme }) => theme.name === 'dark' && '#505A5F'};
     color: ${({ theme }) => theme.colors.text};
@@ -368,8 +368,8 @@ export const User = styled.div`
     ${'' /*  Color / Style Changes for Dark Theme */}
 
     ${({ theme }) =>
-      theme.name === 'dark' &&
-      css`
+    theme.name === 'dark' &&
+    css`
         background: white;
         background: linear-gradient(to right, #7ee8f9, #80ff72);
         -webkit-background-clip: text;

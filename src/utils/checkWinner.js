@@ -15,8 +15,6 @@ export const getTotalMatchCases = (numericGridValue, slidesArray) => {
 
     */
 
-  // ***************** //
-
   // Case 1: Horizontal Row ~ Here I'm creating a horizontalMatchCase Array that I'll use as intermediatory array to loop over and calculate other values.
 
   const horizontalMatchingCases = [];
@@ -33,8 +31,6 @@ export const getTotalMatchCases = (numericGridValue, slidesArray) => {
     // In last I'll push matching case to my winningMatchCases Array to keep in sync.
     winningMatchCases.push(matchingCase);
   }
-
-  // ***************** //
 
   // Case 2: Get Vertical Match Cases ( Top to Down ~ Column )
 
@@ -102,5 +98,3 @@ export const getTotalMatchCases = (numericGridValue, slidesArray) => {
 
   return winningMatchCases;
 };
-
-// ********************************************************* //
