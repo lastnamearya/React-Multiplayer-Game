@@ -163,7 +163,7 @@ export const FormWrapper = styled.div`
   ::before {
     content: '';
     position: absolute;
-    width: 675px;
+    width: 673px;
     height: 200px;
     margin-left: 2.3rem;
     border-radius: 16px;
@@ -225,7 +225,7 @@ export const FormWrapper = styled.div`
 
   button {
     width: 90px;
-    height: 34px;
+    height: 36px;
     cursor: pointer;
     font-size: 1rem;
     color: #fff;
@@ -348,7 +348,7 @@ export const ResetGame = styled.button`
   background: linear-gradient(-45deg, #ec1943, #f0486a);
   border: none;
   color: #fff;
-  width: 140px;
+  width: 160px;
   height: 40px;
   border-radius: 40px;
 `;
