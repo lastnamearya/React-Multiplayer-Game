@@ -90,7 +90,6 @@ class App extends React.Component {
               {/* React Confetti ~ Animation Component, I'll show when someone win the Game ( when winner becomes a truthy value. ) */}
               {winner && <Confetti width={viewPortwidth} height={viewPortHeight} />}
               <GameWrapper>
-                {/* Light and Dark Theme Switch */}
                 <ThemeSwitch>
                   <label id="switch" className="switch">
                     <input

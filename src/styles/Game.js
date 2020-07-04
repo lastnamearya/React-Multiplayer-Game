@@ -163,7 +163,7 @@ export const FormWrapper = styled.div`
   ::before {
     content: '';
     position: absolute;
-    width: 645px;
+    width: 675px;
     height: 200px;
     margin-left: 2.3rem;
     border-radius: 16px;
