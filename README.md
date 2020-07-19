@@ -8,6 +8,6 @@
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/lastnamearya.svg?style=social&label=Follow%20%40lastnamearya)](https://twitter.com/lastnamearya)
 
-:house:&nbsp; [lastnamearya.github.io](lastnamearya.github.io)
+:house:&nbsp; [lastnamearya.github.io](https://lastnamearya.github.io)
 
 :email:&nbsp; arya.jigyasu6815@gmail.com
